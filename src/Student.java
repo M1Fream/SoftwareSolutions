@@ -4,7 +4,10 @@ public class Student {
 	private String myName;
 	private int myGrade;
 	private boolean paid;
-	public Student(int ID) {
+	public Student(int ID) throws IDoutOfRangeException {
+		if (ID<100000 || ID>999999) {
+			throw new IDoutOfRangeException();
+		}
 		myID=ID;
 		myName="Bob"; //look up name in database
 		myGrade=13; //look up grade in database
