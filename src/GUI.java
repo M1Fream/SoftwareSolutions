@@ -5,6 +5,7 @@ import javax.swing.*;
 
 public class GUI extends JFrame{
 	private JLabel fail;
+	private Component a;
 	
 	public GUI(String string) {
 		super(string);
@@ -23,6 +24,11 @@ public class GUI extends JFrame{
 		setSize(1280, 1024); //Default frame size
 		setExtendedState(JFrame.MAXIMIZED_BOTH); //Sets frame to max size
 		setVisible(true); //Makes frame actually visible
+		
+		a=new Component();
+		add(a);
+		a.start();
+		a.setVisible(true);
 		
 		fail = new JLabel("Invalid");
 		add(fail);
