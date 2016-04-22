@@ -25,10 +25,10 @@ public class GUI extends JFrame{
 		setExtendedState(JFrame.MAXIMIZED_BOTH); //Sets frame to max size
 		setVisible(true); //Makes frame actually visible
 		
-		a=new Component();
-		add(a);
-		a.start();
-		a.setVisible(true);
+		//a=new Component();
+		//add(a);
+		//a.start();
+		//a.setVisible(true);
 		
 		fail = new JLabel("Invalid");
 		add(fail);
