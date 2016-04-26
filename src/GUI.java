@@ -3,6 +3,8 @@ import javax.swing.*;
 
 
 public class GUI extends JFrame{
+	private JLabel fail;
+	
 	private static CustomDialog cd;
 	private static PasswordDialog pd;
 	
@@ -24,6 +26,10 @@ public class GUI extends JFrame{
 			setExtendedState(JFrame.MAXIMIZED_BOTH); //Set frame to max size 
 			setVisible(true); //Make frame actually visible
 			
+			fail = new JLabel("Invalid");
+			add(fail);
+			fail.setVisible(false);
+			
 			pd = new PasswordDialog(this);
 			pd.setVisible(true);
 			
@@ -38,5 +44,16 @@ public class GUI extends JFrame{
 	public void close(){
 		setVisible(false);
 		dispose();
+	}
+	
+	public void badID() {
+		fail.setVisible(true);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+		}
+		fail.setVisible(false);
 	}
 }
