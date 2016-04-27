@@ -14,8 +14,10 @@ public class Main {
 		 * */
 		
 		GUI gui = new GUI("Prom sign out");
+		gui.main();
 		//Component a = new Component();
 		//a.start();
+		/*
 		while (!Globals.done) {
 			try{
 				System.out.print("Enter ID: ");
@@ -31,6 +33,7 @@ public class Main {
 				in.next(); //this is magic
 			}
 		}
+		 */
 	}
 
 }

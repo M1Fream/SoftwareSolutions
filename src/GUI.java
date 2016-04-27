@@ -34,6 +34,7 @@ public class GUI extends JFrame{
 			pd.setVisible(true);
 			
 			cd = new CustomDialog(this, promPanel.getPass());
+			getRootPane().setDefaultButton(promPanel.getSubmitButton());
 	}
 			
 	//Toggle cd's visibility
@@ -46,6 +47,7 @@ public class GUI extends JFrame{
 		dispose();
 	}
 	
+<<<<<<< HEAD
 	public void badID() {
 		fail.setVisible(true);
 		try {
@@ -56,4 +58,6 @@ public class GUI extends JFrame{
 		}
 		fail.setVisible(false);
 	}
+=======
+>>>>>>> origin/master
 }

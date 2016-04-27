@@ -31,13 +31,12 @@
 
 
 import javax.swing.*;
+
 import java.beans.*; //property change stuff
 import java.awt.event.*;
 
 /* 1.4 example used by DialogDemo.java. */
-class CustomDialog extends JDialog
-                   implements ActionListener,
-                              PropertyChangeListener {
+public class CustomDialog extends JDialog implements ActionListener, PropertyChangeListener {
 	
     private String typedText = null;
     private JTextField textField;
@@ -174,4 +173,5 @@ class CustomDialog extends JDialog
         textField.setText(null);
         this.setVisible(false);
     }
+
 }

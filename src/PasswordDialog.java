@@ -8,9 +8,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 
-public class PasswordDialog extends JDialog 
-							implements ActionListener,
-									   PropertyChangeListener {
+public class PasswordDialog extends JDialog implements ActionListener,PropertyChangeListener {
 	private String typedText = null;
     private JTextField textField;
 	private String passwordAttempt;
@@ -89,12 +87,9 @@ public class PasswordDialog extends JDialog
 
     /** This method reacts to state changes in the option pane. */
     public void propertyChange(PropertyChangeEvent e) {
-        String prop = e.getPropertyName();
-        if (isVisible()
-         && (e.getSource() == optionPane)
-         && (JOptionPane.VALUE_PROPERTY.equals(prop) ||
-             JOptionPane.INPUT_VALUE_PROPERTY.equals(prop))) {
-            Object value = optionPane.getValue();
+    	String prop = e.getPropertyName();
+    	if (isVisible() && (e.getSource() == optionPane) && (JOptionPane.VALUE_PROPERTY.equals(prop) || JOptionPane.INPUT_VALUE_PROPERTY.equals(prop))) {
+        		Object value = optionPane.getValue();
 
             	if (value == JOptionPane.UNINITIALIZED_VALUE) {
             		//ignore reset
@@ -111,33 +106,32 @@ public class PasswordDialog extends JDialog
             		if (btnString1.equals(value)) {
                     	typedText = textField.getText();
                     	if (passwordAttempt.equals(typedText)) {
-                    	//we're done; clear and dismiss the dialog
-                    	PromPanel.setPass(passwordAttempt);
-                    	this.close();
-                	} else {
-                    	//text was invalid
-                		textField.selectAll();
-                    	JOptionPane.showMessageDialog(
-                                    	PasswordDialog.this,
-                                    	"Sorry, that isn't the password you typed.",
-                                    	"Let's try again.",
-                                    	JOptionPane.ERROR_MESSAGE);
-                    	typedText = null;
-                    	textField.requestFocusInWindow();
-                    	
-                    	//Reset passwordAttempt
-                    	passwordAttempt=null;
-                	}
-            	} else { //user closed dialog or clicked cancel
-            		typedText = null;
-            		clearText();             
-            	}
-            }else{//If passwordAttempt hasn't been filled or has been reset
-            	if (btnString1.equals(value)) {
-                	passwordAttempt = textField.getText();
-            	} else { //user closed dialog or clicked cancel
-            		typedText = null;   
-            	}
+	                    	//we're done; clear and dismiss the dialog
+	                    	PromPanel.setPass(passwordAttempt);
+	                    	this.close();
+                    	} else {
+	                    	//text was invalid
+	                		textField.selectAll();
+	                    	JOptionPane.showMessageDialog(PasswordDialog.this, "Sorry, that isn't the password you typed.", "Let's try again.", JOptionPane.ERROR_MESSAGE);
+	                    	typedText = null;
+	                    	textField.requestFocusInWindow();
+	                    	
+	                    	//Reset passwordAttempt
+	                    	passwordAttempt=null;
+                    	}
+            		} else { //user closed dialog or clicked cancel
+            			typedText = null;
+            			clearText();             
+            		}
+            	} else {//If passwordAttempt hasn't been filled or has been reset
+            		if (btnString1.equals(value)) {
+            			passwordAttempt = textField.getText();
+            			Object[] array = {"Enter password again", textField};
+            			optionPane.setMessage(array);
+            			textField.grabFocus();
+            		} else { //user closed dialog or clicked cancel
+            			typedText = null;   
+            		}
             	clearText();  
             }
         }

@@ -9,6 +9,9 @@ import javax.swing.border.Border;
 public class PromPanel extends JPanel implements ActionListener{
 
 	private static String password;
+	private JButton enterID;
+	private JButton exitWithPass;
+	private JTextField idEntry;
 	
 	
 	public String getPass(){
@@ -24,22 +27,23 @@ public class PromPanel extends JPanel implements ActionListener{
 		//Set default color to white-ish
 		setBackground(new Color((float) 1.0, (float) .9801921560314, (float) .9801921560314)); 
 		
-		JTextPane idLabel = new JTextPane();
+		JLabel idLabel = new JLabel();
 		idLabel.setText("Enter 6-digit student ID:"); //Displays text "Enter 6-digit student ID:" to show users where to type
 		this.add(idLabel,BorderLayout.WEST);
 		
-		JTextField idEntry = new JTextField(6); //TextField to enter student id
+		idEntry = new JTextField(10); //TextField to enter student id
 		idEntry.setToolTipText("Enter ID's here");
 		this.add(idEntry,BorderLayout.EAST);
 		
 		//JButton for entering ID's
-		JButton enterID = new JButton("Enter ID");
+		enterID = new JButton("Enter ID");
 		enterID.setHorizontalAlignment(AbstractButton.CENTER);
 		enterID.setVerticalAlignment(AbstractButton.CENTER);
 		this.add(enterID,BorderLayout.SOUTH);
+		enterID.addActionListener(this);
 		
 		//JButton for exiting program
-		JButton exitWithPass = new JButton("Save and quit program."); 
+		exitWithPass = new JButton("Save and quit program."); 
 		exitWithPass.setHorizontalAlignment(AbstractButton.CENTER);
 		exitWithPass.setVerticalAlignment(AbstractButton.CENTER);
 		this.add(exitWithPass,BorderLayout.SOUTH);
@@ -60,6 +64,23 @@ public class PromPanel extends JPanel implements ActionListener{
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		GUI.setDialogVisible(true);
+		if (e.getSource().equals(exitWithPass)) {
+			GUI.setDialogVisible(true);
+		}
+		if (e.getSource().equals(enterID)) {
+			try {
+				Globals.studentList.add(new Student(Integer.parseInt(idEntry.getText())));
+			} catch (IDoutOfRangeException e1) {
+				System.out.println("Bad id");// make a new dialogue to yell at the user
+				System.out.println(idEntry.getText());
+			} catch (java.lang.NumberFormatException e1) {
+				System.out.println("Really bad id"); //make same box as above ^^^^^^^^^
+			}
+			idEntry.setText("");
+		}
+	}
+
+	public JButton getSubmitButton() {
+		return enterID;
 	}
 }
