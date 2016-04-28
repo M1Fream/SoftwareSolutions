@@ -1,17 +1,18 @@
-import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-import javax.swing.*;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 
 public class ConfirmationDialog extends JDialog implements PropertyChangeListener {
 	private JOptionPane optionPane;
 
-    private String btnString1 = "Confirm";
-    private String btnString2 = "Cancel";
+    private String btnString1 = "Yes";
+    private String btnString2 = "No";
     
     private String msgString1;
     
@@ -60,7 +61,7 @@ public class ConfirmationDialog extends JDialog implements PropertyChangeListene
         optionPane.addPropertyChangeListener(this);
         
         //Set size of dialog and set resizable to false
-        setSize(500, 250);
+        setSize(250, 150);
         this.setResizable(false);
     	this.setVisible(true);
         
@@ -87,11 +88,17 @@ public class ConfirmationDialog extends JDialog implements PropertyChangeListene
                     JOptionPane.UNINITIALIZED_VALUE);
             if (btnString2.equals(value)) { //If user didn't confirm name
             	Globals.studentList.remove(Globals.studentList.size()-1); //Remove the student who was not confirmed
+            	close();
+            }else if (btnString1.equals(value)){
+            	close();
             }
-            //Delete dialog box
-            this.setVisible(false);
-            this.dispose();
+
         }
    } 
     
+    public void close(){
+    	//Delete dialog box
+    	this.setVisible(false);
+    	this.dispose();
+    }
 }

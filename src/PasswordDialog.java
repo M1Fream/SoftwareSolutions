@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.awt.event.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -76,7 +75,7 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
         optionPane.addPropertyChangeListener(this);
         
         //Set size of dialog and set resizable to false
-        setSize(500, 250);
+        setSize(300, 250);
         this.setResizable(false);
     }
 
