@@ -14,6 +14,8 @@ public class Student {
 		paid=false; //look up in database
 		if(myID==328714) {
 			System.out.println("Hello master");
+		}if(myID==372290){
+			System.out.println("Greetings, GUI king"); //Haha, this GUI is really crusty though
 		}
 	}
 	public Student() {
@@ -32,5 +34,8 @@ public class Student {
 	}
 	public String toString() {
 		return myName+", "+myID+", "+myGrade+", paid: "+paid;
+	}
+	public String getName(){
+		return myName;
 	}
 }

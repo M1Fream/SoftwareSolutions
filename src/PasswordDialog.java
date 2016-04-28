@@ -145,6 +145,6 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
     public void close(){
     	textField.setText(null);
         this.setVisible(false);
-        dispose();
+        this.dispose();
     }
 }

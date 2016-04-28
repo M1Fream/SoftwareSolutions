@@ -15,25 +15,6 @@ public class Main {
 		
 		GUI gui = new GUI("Prom sign out");
 		gui.main();
-		//Component a = new Component();
-		//a.start();
-		/*
-		while (!Globals.done) {
-			try{
-				System.out.print("Enter ID: ");
-				int ID = in.nextInt(); // do something if this isn't an int
-				Student temp = new Student(ID); // student will do it's own database lookups
-				System.out.println(temp);
-			} catch (IDoutOfRangeException e) {
-				gui.badID();
-				System.out.println("Out of range");
-			} catch (InputMismatchException e) {
-				System.out.println("ID too big or contains letters");
-				gui.badID();
-				in.next(); //this is magic
-			}
-		}
-		 */
 	}
 
 }
