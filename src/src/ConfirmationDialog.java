@@ -5,7 +5,6 @@ import java.beans.PropertyChangeListener;
 
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 
 public class ConfirmationDialog extends JDialog implements PropertyChangeListener {
