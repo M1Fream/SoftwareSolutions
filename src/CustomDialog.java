@@ -115,7 +115,7 @@ public class CustomDialog extends JDialog implements ActionListener, PropertyCha
         setSize(500, 250);
         this.setResizable(false);
         
-        this.setLocation(myGUI.guiWidth/2-250, myGUI.guiLength/2-125);
+        this.setLocation(this.getWidth()/2-250, this.getHeight()/2-125);
         
         //Make invisible until button is pressed
         this.setVisible(false);

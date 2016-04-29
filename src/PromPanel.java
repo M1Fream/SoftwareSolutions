@@ -23,11 +23,13 @@ public class PromPanel extends JPanel implements ActionListener{
 		password=newPass;
 	}
 	
-	public PromPanel(GUI gui){
-		myGUI=gui;
+	public PromPanel(){
 		
 		//Set default color to white-ish
 		setBackground(new Color((float) 1.0, (float) .9801921560314, (float) .9801921560314)); 
+		this.setOpaque(true);
+		
+		this.setSize(GUI.guiWidth, GUI.guiLength/2);
 		
 		JLabel idLabel = new JLabel();
 		idLabel.setText("Enter 6-digit student ID:"); //Displays text to show users where to type

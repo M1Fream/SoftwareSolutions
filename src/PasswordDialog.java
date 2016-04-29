@@ -18,7 +18,6 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
     private String btnString2 = "Cancel";
     
     private String msgString1 = "What password would you like to use? ";
-    private GUI myGUI;
     
     
     public String getValidatedText() {
@@ -27,7 +26,6 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
     
 	public PasswordDialog(GUI gui) {
 		super(gui,true);
-		myGUI=gui;
 		
 		this.setTitle("Set password");
 		
@@ -80,7 +78,7 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
         setSize(300, 250);
         this.setResizable(false);
         
-        this.setLocation(myGUI.guiWidth/2-150, myGUI.guiLength/2-125);
+        this.setLocation(GUI.guiWidth/2-150, GUI.guiLength/2-125);
     }
 
     /** This method handles events for the text field. */

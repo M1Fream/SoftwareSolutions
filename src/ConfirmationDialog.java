@@ -5,7 +5,6 @@ import java.beans.PropertyChangeListener;
 
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 
 public class ConfirmationDialog extends JDialog implements PropertyChangeListener {
@@ -16,12 +15,10 @@ public class ConfirmationDialog extends JDialog implements PropertyChangeListene
     
     private String msgString1;
     
-    private GUI myGUI;
     private Student myStudent;
     
     public ConfirmationDialog(GUI gui,Student s){
     	super(gui, true);
-    	myGUI = gui;
     	myStudent = s;
     	
     	this.setTitle("Confirm student");
@@ -63,7 +60,7 @@ public class ConfirmationDialog extends JDialog implements PropertyChangeListene
         //Set size of dialog and set resizable to false
         setSize(250, 150);
         this.setResizable(false);
-        this.setLocation(myGUI.guiWidth/2-250, myGUI.guiLength/2-75);
+        this.setLocation(GUI.guiWidth/2-250, GUI.guiLength/2-75);
     	this.setVisible(true);
         
     }
