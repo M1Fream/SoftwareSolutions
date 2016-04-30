@@ -21,12 +21,12 @@ public class GUI extends JFrame{
 		
 			//Add PromPanel
 			PromPanel promPanel = new PromPanel();
-			this.add(promPanel,BorderLayout.CENTER);
+			this.add(promPanel,BorderLayout.NORTH);
 		
-			//Add BackgroundPanel
-			BackgroundPanel bp = new BackgroundPanel();
+			//Add BackgroundPanel with falcon.jpg, falcon2.jpg, or falcon3.jpg, based on constructor argument
+			BackgroundPanel bp = new BackgroundPanel("falcon3");
 			bp.setVisible(true);
-			this.add(bp,BorderLayout.SOUTH);
+			this.add(bp,BorderLayout.CENTER);
 			
 			this.setSize(1280, 1024); //Default frame size
 			
