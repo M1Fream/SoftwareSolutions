@@ -12,13 +12,14 @@ public class ConfirmationDialog extends JDialog implements PropertyChangeListene
 
     private String btnString1 = "Yes";
     private String btnString2 = "No";
-    
     private String msgString1;
     
+    private GUI myGUI;
     private Student myStudent;
     
     public ConfirmationDialog(GUI gui,Student s){
     	super(gui, true);
+    	myGUI = gui;
     	myStudent = s;
     	
     	this.setTitle("Confirm student");
@@ -88,6 +89,9 @@ public class ConfirmationDialog extends JDialog implements PropertyChangeListene
             	Globals.studentList.remove(Globals.studentList.size()-1); //Remove the student who was not confirmed
             	close();
             }else if (btnString1.equals(value)){
+            	if(Globals.studentList.get(Globals.studentList.size()-1).getID()==372290){
+            		myGUI.rainbowBackground();
+            	}
             	close();
             }
 

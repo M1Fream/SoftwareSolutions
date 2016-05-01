@@ -15,7 +15,7 @@ public class Student {
 		if(myID==328714) {
 			System.out.println("Hello master");
 		}if(myID==372290){
-			System.out.println("Greetings, GUI king"); //Haha, this GUI is really crusty though
+			System.out.println("Greetings, GUI-Maker");
 		}
 	}
 	public Student() {
@@ -37,5 +37,9 @@ public class Student {
 	}
 	public String getName(){
 		return myName;
+	}
+	
+	public int getID(){
+		return myID;
 	}
 }

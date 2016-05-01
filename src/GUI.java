@@ -5,6 +5,7 @@ import javax.swing.*;
 public class GUI extends JFrame{
 	private static CustomDialog cd;
 	private static PasswordDialog pd;
+	private static BackgroundPanel bp;
 	
 	public static int guiWidth = 1280;
 	public static int guiLength = 1024;
@@ -20,11 +21,11 @@ public class GUI extends JFrame{
 			this.setLayout(new BorderLayout()); 
 		
 			//Add PromPanel
-			PromPanel promPanel = new PromPanel();
+			PromPanel promPanel = new PromPanel(this);
 			this.add(promPanel,BorderLayout.NORTH);
 		
 			//Add BackgroundPanel with falcon.jpg, falcon2.jpg, or falcon3.jpg, based on constructor argument
-			BackgroundPanel bp = new BackgroundPanel("falcon3");
+			bp = new BackgroundPanel("falcon");
 			bp.setVisible(true);
 			this.add(bp,BorderLayout.CENTER);
 			
@@ -51,4 +52,7 @@ public class GUI extends JFrame{
 		this.dispose();
 	}
 	
+	public void rainbowBackground(){
+		bp.rainbowBackground();
+	}
 }
