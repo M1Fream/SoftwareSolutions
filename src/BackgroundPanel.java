@@ -3,8 +3,6 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
 import javax.swing.ImageIcon;
@@ -44,7 +42,38 @@ class BackgroundPanel extends JPanel{
 			System.out.println("Error: invalid image for BackgroundPanel");
 		}
 		label=new JLabel(new ImageIcon(image));
-
+		/*
+		timer = new Timer(1000,new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				setColor("red");
+			}
+		});
+		timer.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				setColor("orange");
+			}
+		});
+		timer.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				setColor("yellow");
+			}
+		});
+		timer.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				setColor("green");
+			}
+		});
+		timer.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				setColor("blue");
+			}
+		});
+		timer.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				setColor("purple");
+			}
+		});
+		timer.setRepeats(false);*/
 	}
 	
 	@Override
@@ -62,6 +91,13 @@ class BackgroundPanel extends JPanel{
 		label.setIcon(new ImageIcon(image));
 	}
 	
+	private void setColor(String color){
+		color = color.substring(0, 1).toUpperCase()+color.substring(1).toLowerCase(); //Ensure color name is formatted properly
+		try {
+			setPic(javax.imageio.ImageIO.read(new java.net.URL(getClass().getResource(myImageName+color+".jpg"), myImageName+color+".jpg")));
+		} catch (Exception e){ }
+	}
+	
 	private void resetPic(){
 		try {
 			setPic(javax.imageio.ImageIO.read(new java.net.URL(getClass().getResource(myImageName+".jpg"), myImageName+".jpg")));
@@ -69,10 +105,44 @@ class BackgroundPanel extends JPanel{
 	}
 	
 	public void rainbowBackground(){ //For the lolz
+		setColor("red");
 		try {
-			setPic(javax.imageio.ImageIO.read(new java.net.URL(getClass().getResource(myImageName+"Rainbow.gif"), myImageName+"Rainbow.gif")));
-		} catch (Exception e) { }
-		//resetPic();
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		setColor("orange");
+		try {
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		setColor("yellow");
+		try {
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		setColor("green");
+		try {
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		setColor("blue");
+		try {
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		setColor("purple");
+		try {
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		//timer.start();
+		resetPic();
 	}
 	
 }

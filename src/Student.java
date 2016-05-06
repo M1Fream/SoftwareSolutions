@@ -9,12 +9,13 @@ public class Student {
 			throw new IDoutOfRangeException();
 		}
 		myID=ID;
-		myName="Bob"; //look up name in database
-		myGrade=13; //look up grade in database
-		paid=false; //look up in database
+		myName=IO.get(ID, "FIRST") +" "+ IO.get(ID, "LAST"); //look up name in database
+		//myGrade=Integer.parseInt(IO.get(ID, "GRADE")); //look up grade in database
+		paid=false; //look up in database // Just kidding i have no idea what to do here
 		if(myID==328714) {
 			System.out.println("Hello master");
-		}if(myID==372290){
+		}
+		if(myID==372290){
 			System.out.println("Greetings, GUI-Maker");
 		}
 	}
@@ -30,7 +31,7 @@ public class Student {
 		myID=ID;
 		myName=name;
 		myGrade=grade;
-		this.paid=paid; //add sanity checks to this code
+		this.paid=paid; //add sanity checks to this code // or not :)
 	}
 	public String toString() {
 		return myName+", "+myID+", "+myGrade+", paid: "+paid;

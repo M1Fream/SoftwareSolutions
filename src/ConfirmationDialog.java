@@ -89,8 +89,7 @@ public class ConfirmationDialog extends JDialog implements PropertyChangeListene
             	Globals.studentList.remove(Globals.studentList.size()-1); //Remove the student who was not confirmed
             	close();
             }else if (btnString1.equals(value)){
-            	int lastStudent=Globals.studentList.get(Globals.studentList.size()-1).getID();
-            	if(lastStudent==372290||lastStudent==328714||lastStudent==329104||lastStudent==322979){
+            	if(Globals.studentList.get(Globals.studentList.size()-1).getID()==372290){
             		myGUI.rainbowBackground();
             	}
             	close();
