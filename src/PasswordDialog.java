@@ -15,7 +15,6 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
     private JOptionPane optionPane;
 
     private String btnString1 = "Enter";
-    private String btnString2 = "Cancel";
     
     private String msgString1 = "What password would you like to use? ";
     
@@ -35,7 +34,7 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
         
         //Create an array specifying the number of dialog buttons
         //and their text.
-        Object[] options = {btnString1, btnString2};
+        Object[] options = {btnString1};
 
         //Create the JOptionPane.
         optionPane = new JOptionPane(array,
@@ -120,7 +119,7 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
 	                    	//Reset passwordAttempt
 	                    	passwordAttempt=null;
                     	}
-            		} else { //user closed dialog or clicked cancel
+            		} else { //user closed dialog
             			typedText = null;
             			clearText();             
             		}
