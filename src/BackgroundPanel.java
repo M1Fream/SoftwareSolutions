@@ -3,18 +3,15 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.concurrent.TimeUnit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.Timer;
 
 
 //Modified from http://www.coderanch.com/t/660351/Wiki/Background-Image-JPanel
 class BackgroundPanel extends JPanel{ 
 	private String myImageName;
-	//private Timer timer;
 	private JLabel label;
 	
 	Image image;
@@ -42,38 +39,7 @@ class BackgroundPanel extends JPanel{
 			System.out.println("Error: invalid image for BackgroundPanel");
 		}
 		label=new JLabel(new ImageIcon(image));
-		/*
-		timer = new Timer(1000,new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				setColor("red");
-			}
-		});
-		timer.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				setColor("orange");
-			}
-		});
-		timer.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				setColor("yellow");
-			}
-		});
-		timer.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				setColor("green");
-			}
-		});
-		timer.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				setColor("blue");
-			}
-		});
-		timer.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				setColor("purple");
-			}
-		});
-		timer.setRepeats(false);*/
+		
 	}
 	
 	@Override
@@ -105,44 +71,10 @@ class BackgroundPanel extends JPanel{
 	}
 	
 	public void rainbowBackground(){ //For the lolz
-		setColor("red");
 		try {
-			TimeUnit.SECONDS.sleep(1);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		setColor("orange");
-		try {
-			TimeUnit.SECONDS.sleep(1);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		setColor("yellow");
-		try {
-			TimeUnit.SECONDS.sleep(1);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		setColor("green");
-		try {
-			TimeUnit.SECONDS.sleep(1);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		setColor("blue");
-		try {
-			TimeUnit.SECONDS.sleep(1);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		setColor("purple");
-		try {
-			TimeUnit.SECONDS.sleep(1);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		//timer.start();
-		resetPic();
+			setPic(javax.imageio.ImageIO.read(new java.net.URL(getClass().getResource(myImageName+"Rainbow.gif"), myImageName+"Rainbow.gif")));
+		}catch(Exception e){ }
+		//resetPic();
 	}
 	
 }
