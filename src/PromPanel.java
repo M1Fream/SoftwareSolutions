@@ -26,8 +26,8 @@ public class PromPanel extends JPanel implements ActionListener{
 	public PromPanel(GUI gui){
 		myGUI=gui;
 		
-		//Set default color to white-ish
-		setBackground(new Color((float) 1.0, (float) .9801921560314, (float) .9801921560314)); 
+		//Set default color to white
+		setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0)); 
 		this.setOpaque(true);
 		
 		this.setSize(GUI.guiWidth, GUI.guiLength/2);

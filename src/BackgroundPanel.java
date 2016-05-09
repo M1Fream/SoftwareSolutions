@@ -15,7 +15,7 @@ class BackgroundPanel extends JPanel{
 	Image image;
 	
 	public BackgroundPanel(String s){
-		setBackground(new Color((float) 1.0, (float) .9801921560314, (float) .9801921560314)); 
+		setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0)); 
 		this.setOpaque(true);
 		
 		if(s.equals("falcon")){
@@ -55,13 +55,6 @@ class BackgroundPanel extends JPanel{
 		label.setIcon(new ImageIcon(image));
 	}
 	
-	private void setColor(String color){
-		color = color.substring(0, 1).toUpperCase()+color.substring(1).toLowerCase(); //Ensure color name is formatted properly
-		try {
-			setPic(javax.imageio.ImageIO.read(new java.net.URL(getClass().getResource(myImageName+color+".jpg"), myImageName+color+".jpg")));
-		} catch (Exception e){ }
-	}
-	
 	private void resetPic(){
 		try {
 			setPic(javax.imageio.ImageIO.read(new java.net.URL(getClass().getResource(myImageName+".jpg"), myImageName+".jpg")));
@@ -72,7 +65,7 @@ class BackgroundPanel extends JPanel{
 		try {
 			setPic(javax.imageio.ImageIO.read(new java.net.URL(getClass().getResource(myImageName+"Rainbow.gif"), myImageName+"Rainbow.gif")));
 		}catch(Exception e){ }
-		//resetPic();
+		resetPic();
 	}
 	
 }
