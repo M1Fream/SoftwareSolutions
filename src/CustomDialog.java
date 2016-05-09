@@ -77,7 +77,7 @@ public class CustomDialog extends JDialog implements ActionListener, PropertyCha
 
         //Create the JOptionPane.
         optionPane = new JOptionPane(array,
-                                    JOptionPane.QUESTION_MESSAGE,
+                                    JOptionPane.PLAIN_MESSAGE,
                                     JOptionPane.YES_NO_OPTION,
                                     null,
                                     options,

@@ -86,10 +86,12 @@ public class PromPanel extends JPanel implements ActionListener{
 				//Make confirmation dialog to ensure that it is the correct student.
 				ConfirmationDialog conDialog = new ConfirmationDialog(myGUI,Globals.studentList.get(Globals.studentList.size()-1));
 			} catch (IDoutOfRangeException e1) {
-				System.out.println("Bad id");// make a new dialogue to yell at the user
-				System.out.println(idEntry.getText());
+				/*System.out.println("Bad id");// make a new dialogue to yell at the user
+				System.out.println(idEntry.getText());*/
+				ErrorDialog ed = new ErrorDialog();
 			} catch (java.lang.NumberFormatException e1) {
-				System.out.println("Really bad id"); //make same box as above ^^^^^^^^^
+				/*System.out.println("Really bad id"); //make same box as above ^^^^^^^^^*/
+				ErrorDialog ed = new ErrorDialog();
 			}
 			idEntry.setText("");
 		}
