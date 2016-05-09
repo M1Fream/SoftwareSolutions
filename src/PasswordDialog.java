@@ -74,10 +74,10 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
         optionPane.addPropertyChangeListener(this);
         
         //Set size of dialog and set resizable to false
-        setSize(300, 250);
+        setSize(400, 250);
         this.setResizable(false);
         
-        this.setLocation(GUI.guiWidth/2-150, GUI.guiLength/2-125);
+        this.setLocation(GUI.guiWidth/2-200, GUI.guiLength/2-125);
     }
 
     /** This method handles events for the text field. */

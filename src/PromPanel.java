@@ -34,12 +34,15 @@ public class PromPanel extends JPanel implements ActionListener{
 		
 		JLabel idLabel = new JLabel();
 		idLabel.setText("Enter 6-digit student ID:"); //Displays text to show users where to type
-		this.add(idLabel,BorderLayout.WEST);
+		this.add(idLabel);
 		
 		//TextField to enter student id
 		idEntry = new JTextField(10); 
 		idEntry.setToolTipText("Enter ID's here");
-		this.add(idEntry,BorderLayout.EAST);
+		this.add(idEntry);
+		
+		//Functionless filler
+		this.add(Box.createHorizontalStrut(3));
 		
 		//JButton for entering ID's
 		enterID = new JButton("Enter ID");
@@ -48,11 +51,14 @@ public class PromPanel extends JPanel implements ActionListener{
 		this.add(enterID,BorderLayout.SOUTH);
 		enterID.addActionListener(this);
 		
+		//More filler!
+		this.add(Box.createHorizontalStrut(25));
+		
 		//JButton for exiting program
 		exitWithPass = new JButton("Save and quit program."); 
 		exitWithPass.setHorizontalAlignment(AbstractButton.CENTER);
 		exitWithPass.setVerticalAlignment(AbstractButton.CENTER);
-		this.add(exitWithPass,BorderLayout.SOUTH);
+		this.add(exitWithPass);
 		exitWithPass.setToolTipText("Finished signing out students?");
 		
 		
