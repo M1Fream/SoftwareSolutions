@@ -1,3 +1,5 @@
+import java.util.Date;
+
 
 public class Student {
 	private int myID;
@@ -42,5 +44,8 @@ public class Student {
 	
 	public int getID(){
 		return myID;
+	}
+	public String getOut() {
+		return (new Date()).toString() + "," + myName + "," + myID + myGrade;
 	}
 }
