@@ -1,5 +1,8 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -10,14 +13,29 @@ public class IO {
 	
 	static Map<String, Integer> field;
 	static ArrayList<ArrayList<String>> studentData;
+	static File outFile;
+	static FileWriter outFileWriter;
+	static PrintWriter outPrintWriter;
 	public static void init() {
 		Scanner file = null;
 		try {
 			file = new Scanner(new File("SMCS10_noGrades.mer"));
 		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		outFile = new File("out.txt");
+		try {
+			outFile.createNewFile();
+			outFileWriter = new FileWriter(outFile, true);
+			outPrintWriter = new PrintWriter(outFileWriter);
+			outPrintWriter.print("Hello");
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
 		//create Map of Fields (line 1)
 		field = new HashMap<String,Integer>();
 		int i = 0;
@@ -66,6 +84,13 @@ public class IO {
 			student.get(field.get(in));
 		}
 		return studentData.get(0).get(field.get(in));
+	}
+	public static void write(String in) {
+		outPrintWriter.print(in);
+		outPrintWriter.flush();
+	}
+	public static void write(Student in) {
+		write(in.getOut());
 	}
 
 }

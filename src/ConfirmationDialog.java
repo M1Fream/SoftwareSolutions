@@ -92,6 +92,7 @@ public class ConfirmationDialog extends JDialog implements PropertyChangeListene
             	/*if(Globals.studentList.get(Globals.studentList.size()-1).getID()==372290){
             		myGUI.rainbowBackground();
             	}*/
+            	IO.write(Globals.studentList.get(Globals.studentList.size()-1));
             	close();
             }
 
