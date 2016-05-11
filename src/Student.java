@@ -46,6 +46,6 @@ public class Student {
 		return myID;
 	}
 	public String getOut() {
-		return (new Date()).toString() + "," + myName + "," + myID + myGrade;
+		return (new Date()).toString() + "," + myName + "," + myID + "," + (myGrade+10);
 	}
 }
