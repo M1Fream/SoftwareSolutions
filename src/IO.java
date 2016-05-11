@@ -29,7 +29,7 @@ public class IO {
 			outFile.createNewFile();
 			outFileWriter = new FileWriter(outFile, true);
 			outPrintWriter = new PrintWriter(outFileWriter);
-			outPrintWriter.print("Hello");
+			//outPrintWriter.print("Hello");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -76,17 +76,18 @@ public class IO {
 		System.out.println(studentData.size());  
 		*/
 	}
-	public static String get(int ID, String in) {
+	public static String get(int ID, String in) throws IDoutOfRangeException {
 		for(ArrayList<String> student: studentData){
 			if (Integer.parseInt(student.get(field.get("ID")))==ID) {
 				return student.get(field.get(in));
 			}
 			student.get(field.get(in));
 		}
-		return studentData.get(0).get(field.get(in));
+		throw new IDoutOfRangeException();
 	}
 	public static void write(String in) {
-		outPrintWriter.print(in);
+		System.out.println(in);
+		outPrintWriter.println(in);
 		outPrintWriter.flush();
 	}
 	public static void write(Student in) {
