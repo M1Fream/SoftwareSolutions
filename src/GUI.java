@@ -15,15 +15,20 @@ public class GUI extends JFrame{
 	}
 	
 	public void main(){
-			//JFrame frame = new JFrame("Prom Sign Out"); //Create frame for GUI
 			this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE); //Default is do nothing on close
-			//Set frame's layout
-			this.setLayout(new BorderLayout()); 
-		
+			this.setAlwaysOnTop(true); //Always top window
+			this.setLayout(new BorderLayout()); //Set frame's layout
+			//this.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0));
+					
 			JPanel p = new JPanel();
 			p.setOpaque(true);
 			p.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0));
 			p.setLayout(new BorderLayout());
+			
+			Dimension d = new Dimension(guiWidth,guiLength);
+			p.setPreferredSize(d);
+			p.setMinimumSize(d);
+			p.setMaximumSize(d);
 			
 			//Add PromPanel
 			PromPanel promPanel = new PromPanel(this);
@@ -47,14 +52,6 @@ public class GUI extends JFrame{
 			p.add(p2,BorderLayout.CENTER);
 			
 			this.add(p,BorderLayout.NORTH);
-			//this.add(p2,BorderLayout.CENTER);
-			
-			/*
-			//Add BackgroundPanel with falcon.jpg, falcon2.jpg, or falcon3.jpg, based on constructor argument
-			bp = new BackgroundPanel("falcon");
-			bp.setVisible(true);
-			this.add(bp);
-			*/
 			
 			this.setSize(1280, 1024); //Default frame size
 			

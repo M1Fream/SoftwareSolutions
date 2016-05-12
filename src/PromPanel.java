@@ -25,10 +25,9 @@ public class PromPanel extends JPanel implements ActionListener{
 	}
 	
 	public PromPanel(GUI gui){
-		myGUI=gui;
+		myGUI = gui;
 		
-		//Set default color to white
-		setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0)); 
+		this.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0)); 
 		this.setOpaque(true);
 		
 		this.setSize(GUI.guiWidth, GUI.guiLength/2);
@@ -54,25 +53,12 @@ public class PromPanel extends JPanel implements ActionListener{
 		
 		//More filler!
 		this.add(Box.createHorizontalStrut(25));
-		/*
-		//JButton for exiting program
-		exitWithPass = new JButton("Save and quit program."); 
-		exitWithPass.setHorizontalAlignment(AbstractButton.CENTER);
-		exitWithPass.setVerticalAlignment(AbstractButton.CENTER);
-		this.add(exitWithPass);
-		exitWithPass.setToolTipText("Finished signing out students?");
-		*/
 		
 		//Creates and adds bevel to Border of JButtons
 		Border raisedbevel = BorderFactory.createSoftBevelBorder(BevelBorder.RAISED);
 		Border loweredbevel = BorderFactory.createSoftBevelBorder(BevelBorder.LOWERED);
 		Border border = BorderFactory.createCompoundBorder(raisedbevel, loweredbevel);
 		enterID.setBorder(border);
-		//exitWithPass.setBorder(border);
-		
-		//Add ActionListeners 
-		//exitWithPass.addActionListener(this);
-		
 		
 	}
 	
@@ -82,11 +68,8 @@ public class PromPanel extends JPanel implements ActionListener{
 			//Make confirmation dialog to ensure that it is the correct student.
 			ConfirmationDialog conDialog = new ConfirmationDialog(myGUI,Globals.studentList.get(Globals.studentList.size()-1));
 		} catch (IDoutOfRangeException e1) {
-			/*System.out.println("Bad id");// make a new dialogue to yell at the user
-			System.out.println(idEntry.getText());*/
 			ErrorDialog ed = new ErrorDialog();
 		} catch (java.lang.NumberFormatException e1) {
-			/*System.out.println("Really bad id"); //make same box as above ^^^^^^^^^*/
 			ErrorDialog ed = new ErrorDialog();
 		}
 		idEntry.setText("");

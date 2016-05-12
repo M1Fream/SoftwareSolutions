@@ -14,8 +14,7 @@ public class ButtonPanel extends JPanel implements ActionListener{
 	private JButton exitWithPass;
 	
 	public ButtonPanel(){
-		//Set default color to white
-		setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0)); 
+		this.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0)); 
 		this.setOpaque(true);
 		
 		//JButton for exiting program

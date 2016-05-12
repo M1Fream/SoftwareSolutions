@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 
@@ -15,7 +16,7 @@ class BackgroundPanel extends JPanel{
 	Image image;
 	
 	public BackgroundPanel(String s){
-		setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0)); 
+		this.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0)); 
 		this.setOpaque(true);
 		
 		if(s.equals("falcon")){
@@ -38,7 +39,10 @@ class BackgroundPanel extends JPanel{
 		}
 		label=new JLabel(new ImageIcon(image));
 		
-		this.setSize(GUI.guiWidth, 156);
+		Dimension d = new Dimension(GUI.guiWidth, 312);
+		this.setPreferredSize(d);
+		this.setMinimumSize(d);
+		this.setMaximumSize(d);
 	}
 	
 	@Override
