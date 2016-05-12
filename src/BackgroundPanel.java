@@ -38,6 +38,7 @@ class BackgroundPanel extends JPanel{
 		}
 		label=new JLabel(new ImageIcon(image));
 		
+		this.setSize(GUI.guiWidth, 156);
 	}
 	
 	@Override
@@ -50,8 +51,6 @@ class BackgroundPanel extends JPanel{
 	}
 	
 	private void setPic(Image image) {
-	    /*this.image = image;
-	    this.repaint();*/
 		label.setIcon(new ImageIcon(image));
 	}
 	

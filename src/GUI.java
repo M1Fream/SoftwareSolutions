@@ -20,14 +20,41 @@ public class GUI extends JFrame{
 			//Set frame's layout
 			this.setLayout(new BorderLayout()); 
 		
+			JPanel p = new JPanel();
+			p.setOpaque(true);
+			p.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0));
+			p.setLayout(new BorderLayout());
+			
 			//Add PromPanel
 			PromPanel promPanel = new PromPanel(this);
-			this.add(promPanel,BorderLayout.NORTH);
-		
+			p.add(promPanel,BorderLayout.NORTH);
+			
+			JPanel p2 = new JPanel();
+			p2.setOpaque(true);
+			p2.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0));
+			p2.setLayout(new BorderLayout());
+			
 			//Add BackgroundPanel with falcon.jpg, falcon2.jpg, or falcon3.jpg, based on constructor argument
 			bp = new BackgroundPanel("falcon");
 			bp.setVisible(true);
-			this.add(bp,BorderLayout.CENTER);
+			p2.add(bp,BorderLayout.NORTH);
+			
+			//Add filler
+			p2.add(Box.createVerticalStrut(30));
+			
+			//Add final ButtonPanel
+			p2.add(new ButtonPanel());
+			p.add(p2,BorderLayout.CENTER);
+			
+			this.add(p,BorderLayout.NORTH);
+			//this.add(p2,BorderLayout.CENTER);
+			
+			/*
+			//Add BackgroundPanel with falcon.jpg, falcon2.jpg, or falcon3.jpg, based on constructor argument
+			bp = new BackgroundPanel("falcon");
+			bp.setVisible(true);
+			this.add(bp);
+			*/
 			
 			this.setSize(1280, 1024); //Default frame size
 			
