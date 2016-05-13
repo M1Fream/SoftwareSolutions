@@ -1,3 +1,4 @@
+import java.awt.Font;
 import java.awt.event.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -15,7 +16,7 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
     private JOptionPane optionPane;
 
     private String btnString1 = "Enter";
-    private String msgString1 = "What password would you like to use? ";
+    private String msgString1 = "Please enter the password you would like to use to exit the program ";
     
     private GUI myGUI;
     
@@ -31,6 +32,9 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
 		
 		//Create an array of the text and components to be displayed.
 		textField = new JTextField(10);
+		//Set font
+		textField.setFont(new Font("Times New Roman",Font.PLAIN,20));
+		
         Object[] array = {msgString1, textField};
         
         //Create an array specifying the number of dialog buttons
@@ -39,11 +43,14 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
 
         //Create the JOptionPane.
         optionPane = new JOptionPane(array,
-                                    JOptionPane.QUESTION_MESSAGE,
+                                    JOptionPane.PLAIN_MESSAGE,
                                     JOptionPane.YES_NO_OPTION,
                                     null,
                                     options,
                                     options[0]);
+        //Set font
+        optionPane.setFont(new Font("Times New Roman",Font.PLAIN,20));
+        
         //Make this dialog display it.
         setContentPane(optionPane);
 

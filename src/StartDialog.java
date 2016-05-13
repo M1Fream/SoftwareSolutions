@@ -1,3 +1,4 @@
+import java.awt.Font;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.beans.PropertyChangeEvent;
@@ -23,7 +24,7 @@ public class StartDialog extends JDialog implements PropertyChangeListener{
 		
 		msgString1 = "Welcome to the Software Solutions Prom Sign-Out!";
 		
-Object[] options = {btnString};
+		Object[] options = {btnString};
 		
 		//Create the JOptionPane.
     	optionPane = new JOptionPane(msgString1,
@@ -32,6 +33,8 @@ Object[] options = {btnString};
                 null,
                 options,
                 options[0]);
+    	//Set font
+    	optionPane.setFont(new Font("Times New Roman",Font.PLAIN,20));
     	
     	//Make this dialog display it.
         setContentPane(optionPane);

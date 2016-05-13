@@ -33,6 +33,7 @@
 import javax.swing.*;
 
 import java.beans.*; //property change stuff
+import java.awt.Font;
 import java.awt.event.*;
 
 /* 1.4 example used by DialogDemo.java. */
@@ -70,6 +71,8 @@ public class CustomDialog extends JDialog implements ActionListener, PropertyCha
         this.setTitle("Save and quit");
 
         textField = new JTextField(10);
+        //Set font
+        textField.setFont(new Font("Times New Roman",Font.PLAIN,20));
 
         //Create an array of the text and components to be displayed.
         String msgString1 = "Please enter the password to save and exit: ";
@@ -87,9 +90,12 @@ public class CustomDialog extends JDialog implements ActionListener, PropertyCha
                                     null,
                                     options,
                                     options[0]);
+        //Set font
+    	optionPane.setFont(new Font("Times New Roman",Font.PLAIN,20));
+        
         //Make this dialog display it.
         setContentPane(optionPane);
-
+        
         //Handle window closing correctly.
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {

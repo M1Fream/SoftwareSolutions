@@ -1,3 +1,4 @@
+import java.awt.Font;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.beans.PropertyChangeEvent;
@@ -37,6 +38,9 @@ public class ConfirmationDialog extends JDialog implements PropertyChangeListene
                 null,
                 options,
                 options[0]);
+    	
+    	//Set font
+    	optionPane.setFont(new Font("Times New Roman",Font.PLAIN,20));
     	
     	//Make this dialog display it.
         setContentPane(optionPane);

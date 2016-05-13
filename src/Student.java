@@ -19,7 +19,6 @@ public class Student {
 		}
 		if(myID==372290){
 			System.out.println("Hey GUI-Maker");
-			System.out.println(myGrade);
 		}
 	}
 	public Student() {
