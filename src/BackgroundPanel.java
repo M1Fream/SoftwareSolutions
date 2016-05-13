@@ -43,6 +43,8 @@ class BackgroundPanel extends JPanel{
 		this.setPreferredSize(d);
 		this.setMinimumSize(d);
 		this.setMaximumSize(d);
+		
+		this.setVisible(true);
 	}
 	
 	@Override

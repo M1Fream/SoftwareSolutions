@@ -69,12 +69,6 @@ public class IO {
 			}	
 		}
 		
-		/*
-		for(ArrayList<String> student: studentData){
-			System.out.println(student.get(field.get("LAST")));
-		}
-		System.out.println(studentData.size());  
-		*/
 	}
 	public static String get(int ID, String in) throws IDoutOfRangeException {
 		for(ArrayList<String> student: studentData){

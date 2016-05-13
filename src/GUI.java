@@ -20,7 +20,8 @@ public class GUI extends JFrame{
 			this.setAlwaysOnTop(true); //Always top window
 			this.setLayout(new BorderLayout()); //Set frame's layout
 			this.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0));
-					
+			
+			//JPanels to store stuff
 			JPanel p = new JPanel();
 			p.setOpaque(true);
 			p.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0));
@@ -31,27 +32,35 @@ public class GUI extends JFrame{
 			p.setMinimumSize(d);
 			p.setMaximumSize(d);
 			
-			//Add PromPanel
-			promPanel = new PromPanel(this);
-			p.add(promPanel,BorderLayout.NORTH);
-			
 			JPanel p2 = new JPanel();
 			p2.setOpaque(true);
 			p2.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0));
 			p2.setLayout(new BorderLayout());
 			
+			JPanel p3 = new JPanel();
+			p3.setOpaque(true);
+			p3.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0));
+			p3.setLayout(new BorderLayout());
+			
+			//Add PromPanel
+			promPanel = new PromPanel(this);
+			p.add(promPanel,BorderLayout.NORTH);
+			
 			//Add BackgroundPanel with falcon.jpg, falcon2.jpg, or falcon3.jpg, based on constructor argument
 			bp = new BackgroundPanel("falcon");
-			bp.setVisible(true);
-			p2.add(bp,BorderLayout.NORTH);
+			//p2.add(bp,BorderLayout.NORTH);
+			p3.add(bp,BorderLayout.CENTER);
 			
-			//Add filler
-			p2.add(Box.createVerticalStrut(30));
+			//Add ButtonPanel
+			p3.add(new ButtonPanel(),BorderLayout.NORTH);
 			
-			//Add final ButtonPanel
-			p2.add(new ButtonPanel());
+			//Add CrestPanel
+			//p3.add(new CrestPanel(),BorderLayout.CENTER);
+			p2.add(new CrestPanel(),BorderLayout.NORTH);
+			
+			//Put it all together
+			p2.add(p3,BorderLayout.CENTER);
 			p.add(p2,BorderLayout.CENTER);
-			
 			this.add(p,BorderLayout.NORTH);
 			
 			this.setSize(1280, 1024); //Default frame size
