@@ -15,9 +15,9 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
     private JOptionPane optionPane;
 
     private String btnString1 = "Enter";
-    
     private String msgString1 = "What password would you like to use? ";
     
+    private GUI myGUI;
     
     public String getValidatedText() {
         return typedText;
@@ -25,6 +25,7 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
     
 	public PasswordDialog(GUI gui) {
 		super(gui,true);
+		myGUI=gui;
 		
 		this.setTitle("Set password");
 		
@@ -102,17 +103,19 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
             	optionPane.setValue(
             			JOptionPane.UNINITIALIZED_VALUE);
             	
-            	if(passwordAttempt!=null/*&&!passwordAttempt.equals("")*/){//If an attempted password has been typed (for verifying password)
+            	if(passwordAttempt!=null){//If an attempted password has been typed (for verifying password)
             		if (btnString1.equals(value)) {
                     	typedText = textField.getText();
                     	if (passwordAttempt.equals(typedText)) {
 	                    	//we're done; clear and dismiss the dialog
-	                    	PromPanel.setPass(passwordAttempt);
+                    		myGUI.getCustomDialog().setPassword(passwordAttempt);
 	                    	this.close();
                     	} else {
 	                    	//text was invalid
 	                		textField.selectAll();
-	                    	JOptionPane.showMessageDialog(PasswordDialog.this, "Sorry, that isn't the password you typed.", "Let's try again.", JOptionPane.ERROR_MESSAGE);
+	                    	JOptionPane.showMessageDialog(PasswordDialog.this, "Sorry, that isn't the password you typed.", "Let's try again", JOptionPane.ERROR_MESSAGE);
+	                    	Object[] array = {msgString1, textField};
+	            			optionPane.setMessage(array);
 	                    	typedText = null;
 	                    	textField.requestFocusInWindow();
 	                    	

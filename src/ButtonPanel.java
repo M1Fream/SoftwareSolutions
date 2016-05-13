@@ -36,7 +36,7 @@ public class ButtonPanel extends JPanel implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		GUI.setDialogVisible(true);
+		GUI.setCustomDialogVisible(true);
 		
 	}
 }

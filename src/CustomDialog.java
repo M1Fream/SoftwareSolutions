@@ -48,6 +48,11 @@ public class CustomDialog extends JDialog implements ActionListener, PropertyCha
     private String btnString2 = "Cancel";
 
     private GUI myGUI;
+    
+    void setPassword(String pass){
+    	password=pass;
+    }
+    
     /**
      * Returns null if the typed string was invalid;
      * otherwise, returns the string as the user entered it.
@@ -57,11 +62,11 @@ public class CustomDialog extends JDialog implements ActionListener, PropertyCha
     }
 
     /** Creates the reusable dialog. */
-    public CustomDialog(GUI gui, String aWord) {
+    public CustomDialog(GUI gui) {
         super(gui, true);
         myGUI=gui;
         
-        password = aWord.toUpperCase();
+
         this.setTitle("Save and quit");
 
         textField = new JTextField(10);
@@ -147,8 +152,7 @@ public class CustomDialog extends JDialog implements ActionListener, PropertyCha
                     JOptionPane.UNINITIALIZED_VALUE);
             if (btnString1.equals(value)) {
                     typedText = textField.getText();
-                String ucText = typedText.toUpperCase();
-                if (password.equals(ucText)) {
+                if (password.equals(typedText)) {
                     //we're done; clear and dismiss the dialog
                     clearAndHide();
                     myGUI.close();

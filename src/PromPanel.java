@@ -9,20 +9,10 @@ import javax.swing.border.Border;
 
 public class PromPanel extends JPanel implements ActionListener{
 
-	private static String password;
 	private JButton enterID;
-	//private JButton exitWithPass;
 	private JTextField idEntry;
 	
 	private GUI myGUI;
-	
-	public String getPass(){
-		return password;
-	}
-	
-	public static void setPass(String newPass){
-		password=newPass;
-	}
 	
 	public PromPanel(GUI gui){
 		myGUI = gui;

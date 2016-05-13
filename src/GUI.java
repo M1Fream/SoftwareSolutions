@@ -6,6 +6,7 @@ public class GUI extends JFrame{
 	private static CustomDialog cd;
 	private static PasswordDialog pd;
 	private static BackgroundPanel bp;
+	private static PromPanel promPanel;
 	
 	public static int guiWidth = 1280;
 	public static int guiLength = 1024;
@@ -18,7 +19,7 @@ public class GUI extends JFrame{
 			this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE); //Default is do nothing on close
 			this.setAlwaysOnTop(true); //Always top window
 			this.setLayout(new BorderLayout()); //Set frame's layout
-			//this.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0));
+			this.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0));
 					
 			JPanel p = new JPanel();
 			p.setOpaque(true);
@@ -31,7 +32,7 @@ public class GUI extends JFrame{
 			p.setMaximumSize(d);
 			
 			//Add PromPanel
-			PromPanel promPanel = new PromPanel(this);
+			promPanel = new PromPanel(this);
 			p.add(promPanel,BorderLayout.NORTH);
 			
 			JPanel p2 = new JPanel();
@@ -58,19 +59,26 @@ public class GUI extends JFrame{
 			this.setExtendedState(JFrame.MAXIMIZED_BOTH); //Set frame to max size 
 			this.setVisible(true); //Make frame actually visible
 			
-			pd = new PasswordDialog(this);
-			pd.setVisible(true);
+			StartDialog sd = new StartDialog(this);
+			sd.setVisible(true);
+			sd.setAlwaysOnTop(true);
 			
-			cd = new CustomDialog(this, promPanel.getPass());
+			pd = new PasswordDialog(this);
+			
+			cd = new CustomDialog(this);
 			this.getRootPane().setDefaultButton(promPanel.getSubmitButton());
-					
+
 	}
 			
-	//Toggle cd's visibility
-	public static void setDialogVisible(boolean b){
+	//Toggle visibility
+	public static void setCustomDialogVisible(boolean b){
 		cd.setVisible(b);
 	}
 	
+	public static void setPasswordDialogVisible(boolean b){
+		pd.setVisible(b);
+	}
+
 	public void close(){
 		this.setVisible(false);
 		this.dispose();
@@ -78,5 +86,13 @@ public class GUI extends JFrame{
 	
 	public void rainbowBackground(){
 		bp.rainbowBackground();
+	}
+	
+	public PromPanel getPromPanel(){
+		return promPanel;
+	}
+	
+	public CustomDialog getCustomDialog(){
+		return cd;
 	}
 }

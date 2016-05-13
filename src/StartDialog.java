@@ -7,24 +7,27 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 
-public class ErrorDialog extends JDialog implements PropertyChangeListener {
+public class StartDialog extends JDialog implements PropertyChangeListener{
 	private JOptionPane optionPane;
 	
 	private String btnString = "OK";
 	private String msgString1;
 	
-	public ErrorDialog(){
-
-		this.setTitle("Invalid ID");
+	private GUI myGUI;
+	
+	public StartDialog(GUI gui){
+		myGUI = gui;
+		
+		this.setTitle("Welcome");
 		this.setAlwaysOnTop(true);
 		
-		msgString1 = "Error: 6-digit ID not entered";
+		msgString1 = "Welcome to the Software Solutions Prom Sign-Out!";
 		
-		Object[] options = {btnString};
+Object[] options = {btnString};
 		
 		//Create the JOptionPane.
     	optionPane = new JOptionPane(msgString1,
-                JOptionPane.ERROR_MESSAGE,
+                JOptionPane.PLAIN_MESSAGE,
                 JOptionPane.YES_NO_OPTION,
                 null,
                 options,
@@ -51,9 +54,9 @@ public class ErrorDialog extends JDialog implements PropertyChangeListener {
         optionPane.addPropertyChangeListener(this);
         
         //Set size of dialog and set resizable to false
-        setSize(250, 150);
+        setSize(350, 150);
         this.setResizable(false);
-        this.setLocation(GUI.guiWidth/2-125, GUI.guiLength/2-75);
+        this.setLocation(GUI.guiWidth/2-175, GUI.guiLength/2-75);
     	this.setVisible(true);
     	
 	}
@@ -82,10 +85,11 @@ public class ErrorDialog extends JDialog implements PropertyChangeListener {
             }
         }
     }
-    
-    public void close(){
-    	//Delete dialog box
-    	this.setVisible(false);
-    	this.dispose();
+	
+	public void close(){//Close window and make password dialog visible
+        this.setVisible(false);
+        GUI.setPasswordDialogVisible(true);
+        myGUI.setResizable(false);
+        this.dispose();
     }
 }

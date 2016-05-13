@@ -61,7 +61,7 @@ public class ConfirmationDialog extends JDialog implements PropertyChangeListene
         //Set size of dialog and set resizable to false
         setSize(250, 150);
         this.setResizable(false);
-        this.setLocation(GUI.guiWidth/2-250, GUI.guiLength/2-75);
+        this.setLocation(GUI.guiWidth/2-125, GUI.guiLength/2-75);
     	this.setVisible(true);
         
     }
