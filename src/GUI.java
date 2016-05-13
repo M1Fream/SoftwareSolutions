@@ -42,23 +42,49 @@ public class GUI extends JFrame{
 			p3.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0));
 			p3.setLayout(new BorderLayout());
 			
+			JPanel p4 = new JPanel();
+			p4.setOpaque(true);
+			p4.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0));
+			p4.setLayout(new BorderLayout());
+			
+			JPanel p5 = new JPanel();
+			p5.setOpaque(true);
+			p5.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0));
+			p5.setLayout(new BorderLayout());
+			
+			JPanel p6 = new JPanel();
+			p6.setOpaque(true);
+			p6.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0));
+			p6.setLayout(new BorderLayout());
+			
+			//Invisible box
+			p.add(Box.createRigidArea(new Dimension(0,75)),BorderLayout.NORTH);
+			
 			//Add PromPanel
 			promPanel = new PromPanel(this);
-			p.add(promPanel,BorderLayout.NORTH);
+			p2.add(promPanel,BorderLayout.NORTH);
+			
+			//Invisible box
+			p3.add(Box.createRigidArea(new Dimension(0,75)),BorderLayout.NORTH);
+			
+			//Add CrestPanel
+			p4.add(new CrestPanel(),BorderLayout.NORTH);
+			
+			//Invisible box
+			p5.add(Box.createRigidArea(new Dimension(0,75)),BorderLayout.NORTH);
 			
 			//Add BackgroundPanel with falcon.jpg, falcon2.jpg, or falcon3.jpg, based on constructor argument
 			bp = new BackgroundPanel("falcon");
-			//p2.add(bp,BorderLayout.NORTH);
-			p3.add(bp,BorderLayout.CENTER);
+			p6.add(bp,BorderLayout.CENTER);
 			
 			//Add ButtonPanel
-			p3.add(new ButtonPanel(),BorderLayout.NORTH);
+			p6.add(new ButtonPanel(),BorderLayout.NORTH);
 			
-			//Add CrestPanel
-			//p3.add(new CrestPanel(),BorderLayout.CENTER);
-			p2.add(new CrestPanel(),BorderLayout.NORTH);
 			
 			//Put it all together
+			p5.add(p6,BorderLayout.CENTER);
+			p4.add(p5,BorderLayout.CENTER);
+			p3.add(p4,BorderLayout.CENTER);
 			p2.add(p3,BorderLayout.CENTER);
 			p.add(p2,BorderLayout.CENTER);
 			this.add(p,BorderLayout.NORTH);

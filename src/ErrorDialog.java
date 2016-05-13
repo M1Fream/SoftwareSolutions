@@ -31,7 +31,7 @@ public class ErrorDialog extends JDialog implements PropertyChangeListener {
                 options,
                 options[0]);
     	//Set font
-    	optionPane.setFont(new Font("Times New Roman",Font.PLAIN,20));
+    	optionPane.setFont(new Font("Times New Roman",Font.PLAIN,24));
     	
     	//Make this dialog display it.
         setContentPane(optionPane);

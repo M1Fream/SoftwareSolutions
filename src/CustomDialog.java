@@ -72,7 +72,7 @@ public class CustomDialog extends JDialog implements ActionListener, PropertyCha
 
         textField = new JTextField(10);
         //Set font
-        textField.setFont(new Font("Times New Roman",Font.PLAIN,20));
+        textField.setFont(new Font("Times New Roman",Font.PLAIN,24));
 
         //Create an array of the text and components to be displayed.
         String msgString1 = "Please enter the password to save and exit: ";

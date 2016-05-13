@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -18,9 +19,10 @@ public class ButtonPanel extends JPanel implements ActionListener{
 		this.setOpaque(true);
 		
 		//JButton for exiting program
-		exitWithPass = new JButton("Save and quit program."); 
+		exitWithPass = new JButton("Save and quit program"); 
 		exitWithPass.setHorizontalAlignment(AbstractButton.CENTER);
 		exitWithPass.setVerticalAlignment(AbstractButton.CENTER);
+		exitWithPass.setFont(new Font("Times New Roman",Font.PLAIN,24));
 		this.add(exitWithPass);
 		exitWithPass.setToolTipText("Finished signing out students?");
 		

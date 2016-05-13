@@ -33,7 +33,7 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
 		//Create an array of the text and components to be displayed.
 		textField = new JTextField(10);
 		//Set font
-		textField.setFont(new Font("Times New Roman",Font.PLAIN,20));
+		textField.setFont(new Font("Times New Roman",Font.PLAIN,24));
 		
         Object[] array = {msgString1, textField};
         

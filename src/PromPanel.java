@@ -24,28 +24,28 @@ public class PromPanel extends JPanel implements ActionListener{
 		
 		JLabel idLabel = new JLabel();
 		idLabel.setText("Enter 6-digit student ID:"); //Displays text to show users where to type
-		idLabel.setFont(new Font("Times New Roman",Font.PLAIN,20));
+		idLabel.setFont(new Font("Times New Roman",Font.PLAIN,24));
 		this.add(idLabel);
+		
+		//Functionless filler
+		this.add(Box.createHorizontalStrut(3));
 		
 		//TextField to enter student id
 		idEntry = new JTextField(10); 
 		idEntry.setToolTipText("Enter ID's here");
-		idEntry.setFont(new Font("Times New Roman",Font.PLAIN,20));
+		idEntry.setFont(new Font("Times New Roman",Font.PLAIN,24));
 		this.add(idEntry);
-		
-		//Functionless filler
-		this.add(Box.createHorizontalStrut(3));
+
+		//More filler!
+		this.add(Box.createHorizontalStrut(25));
 		
 		//JButton for entering ID's
 		enterID = new JButton("Enter ID");
 		enterID.setHorizontalAlignment(AbstractButton.CENTER);
 		enterID.setVerticalAlignment(AbstractButton.CENTER);
-		enterID.setFont(new Font("Times New Roman",Font.PLAIN,20));
+		enterID.setFont(new Font("Times New Roman",Font.PLAIN,24));
 		this.add(enterID);
 		enterID.addActionListener(this);
-		
-		//More filler!
-		this.add(Box.createHorizontalStrut(25));
 		
 		//Creates and adds bevel to Border of JButtons
 		Border raisedbevel = BorderFactory.createSoftBevelBorder(BevelBorder.RAISED);
