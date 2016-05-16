@@ -45,8 +45,8 @@ public class CustomDialog extends JDialog implements ActionListener, PropertyCha
     private String password;
     private JOptionPane optionPane;
 
-    private String btnString1 = "Enter";
-    private String btnString2 = "Cancel";
+    private String btnString1 = " Enter ";
+    private String btnString2 = " Cancel ";
 
     private GUI myGUI;
     
@@ -72,7 +72,7 @@ public class CustomDialog extends JDialog implements ActionListener, PropertyCha
 
         textField = new JTextField(10);
         //Set font
-        textField.setFont(new Font("Times New Roman",Font.PLAIN,24));
+        textField.setFont(new Font("Times New Roman",Font.PLAIN,28));
 
         //Create an array of the text and components to be displayed.
         String msgString1 = "Please enter the password to save and exit: ";
@@ -91,7 +91,8 @@ public class CustomDialog extends JDialog implements ActionListener, PropertyCha
                                     options,
                                     options[0]);
         //Set font
-    	optionPane.setFont(new Font("Times New Roman",Font.PLAIN,20));
+        UIManager.put("OptionPane.messageFont", new Font("Times New Roman",Font.PLAIN,28));
+        UIManager.put("OptionPane.buttonFont", new Font("Times New Roman",Font.PLAIN,28));
         
         //Make this dialog display it.
         setContentPane(optionPane);
@@ -123,10 +124,10 @@ public class CustomDialog extends JDialog implements ActionListener, PropertyCha
         optionPane.addPropertyChangeListener(this);
         
         //Set size of dialog and set resizable to false
-        setSize(500, 250);
+        setSize(600, 250);
         this.setResizable(false);
         
-        this.setLocation(this.getWidth()/2-250, this.getHeight()/2-125);
+        this.setLocation(GUI.guiWidth/2-300, GUI.guiLength/2-125);
         
         //Make invisible until button is pressed
         this.setVisible(false);
@@ -171,6 +172,7 @@ public class CustomDialog extends JDialog implements ActionListener, PropertyCha
                                     "Wrong password",
                                     JOptionPane.ERROR_MESSAGE);
                     typedText = null;
+                    textField.setText(null);
                     textField.requestFocusInWindow();
                 }
             } else { //user closed dialog or clicked cancel

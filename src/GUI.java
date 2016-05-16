@@ -58,20 +58,20 @@ public class GUI extends JFrame{
 			p6.setLayout(new BorderLayout());
 			
 			//Invisible box
-			p.add(Box.createRigidArea(new Dimension(0,75)),BorderLayout.NORTH);
+			p.add(Box.createRigidArea(new Dimension(0,50)),BorderLayout.NORTH);
 			
 			//Add PromPanel
 			promPanel = new PromPanel(this);
 			p2.add(promPanel,BorderLayout.NORTH);
 			
 			//Invisible box
-			p3.add(Box.createRigidArea(new Dimension(0,75)),BorderLayout.NORTH);
+			p3.add(Box.createRigidArea(new Dimension(0,50)),BorderLayout.NORTH);
 			
 			//Add CrestPanel
 			p4.add(new CrestPanel(),BorderLayout.NORTH);
 			
 			//Invisible box
-			p5.add(Box.createRigidArea(new Dimension(0,75)),BorderLayout.NORTH);
+			p5.add(Box.createRigidArea(new Dimension(0,50)),BorderLayout.NORTH);
 			
 			//Add BackgroundPanel with falcon.jpg, falcon2.jpg, or falcon3.jpg, based on constructor argument
 			bp = new BackgroundPanel("falcon");
@@ -94,6 +94,7 @@ public class GUI extends JFrame{
 			this.setExtendedState(JFrame.MAXIMIZED_BOTH); //Set frame to max size 
 			this.setVisible(true); //Make frame actually visible
 			
+			//Create dialogs
 			StartDialog sd = new StartDialog(this);
 			sd.setVisible(true);
 			sd.setAlwaysOnTop(true);

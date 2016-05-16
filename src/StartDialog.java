@@ -6,12 +6,13 @@ import java.beans.PropertyChangeListener;
 
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 
 public class StartDialog extends JDialog implements PropertyChangeListener{
 	private JOptionPane optionPane;
 	
-	private String btnString = "OK";
+	private String btnString = " OK ";
 	private String msgString1;
 	
 	private GUI myGUI;
@@ -34,7 +35,8 @@ public class StartDialog extends JDialog implements PropertyChangeListener{
                 options,
                 options[0]);
     	//Set font
-    	optionPane.setFont(new Font("Times New Roman",Font.PLAIN,24));
+        UIManager.put("OptionPane.messageFont", new Font("Times New Roman",Font.PLAIN,28));
+        UIManager.put("OptionPane.buttonFont", new Font("Times New Roman",Font.PLAIN,28));
     	
     	//Make this dialog display it.
         setContentPane(optionPane);

@@ -6,13 +6,14 @@ import java.beans.PropertyChangeListener;
 
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 
 public class ConfirmationDialog extends JDialog implements PropertyChangeListener {
 	private JOptionPane optionPane;
 
-    private String btnString1 = "Yes";
-    private String btnString2 = "No";
+    private String btnString1 = " Yes ";
+    private String btnString2 = " No ";
     private String msgString1;
     
     private GUI myGUI;
@@ -40,7 +41,8 @@ public class ConfirmationDialog extends JDialog implements PropertyChangeListene
                 options[0]);
     	
     	//Set font
-    	optionPane.setFont(new Font("Times New Roman",Font.PLAIN,24));
+        UIManager.put("OptionPane.messageFont", new Font("Times New Roman",Font.PLAIN,28));
+        UIManager.put("OptionPane.buttonFont", new Font("Times New Roman",Font.PLAIN,28));
     	
     	//Make this dialog display it.
         setContentPane(optionPane);
@@ -63,9 +65,9 @@ public class ConfirmationDialog extends JDialog implements PropertyChangeListene
         optionPane.addPropertyChangeListener(this);
         
         //Set size of dialog and set resizable to false
-        setSize(250, 150);
+        setSize(650, 200);
         this.setResizable(false);
-        this.setLocation(GUI.guiWidth/2-125, GUI.guiLength/2-75);
+        this.setLocation(GUI.guiWidth/2-325, GUI.guiLength/2-100);
     	this.setVisible(true);
         
     }
@@ -93,9 +95,6 @@ public class ConfirmationDialog extends JDialog implements PropertyChangeListene
             	Globals.studentList.remove(Globals.studentList.size()-1); //Remove the student who was not confirmed
             	close();
             }else if (btnString1.equals(value)){
-            	/*if(Globals.studentList.get(Globals.studentList.size()-1).getID()==372290){
-            		myGUI.rainbowBackground();
-            	}*/
             	IO.write(Globals.studentList.get(Globals.studentList.size()-1));
             	close();
             }

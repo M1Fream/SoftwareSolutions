@@ -24,7 +24,7 @@ public class PromPanel extends JPanel implements ActionListener{
 		
 		JLabel idLabel = new JLabel();
 		idLabel.setText("Enter 6-digit student ID:"); //Displays text to show users where to type
-		idLabel.setFont(new Font("Times New Roman",Font.PLAIN,24));
+		idLabel.setFont(new Font("Times New Roman",Font.PLAIN,28));
 		this.add(idLabel);
 		
 		//Functionless filler
@@ -33,23 +33,23 @@ public class PromPanel extends JPanel implements ActionListener{
 		//TextField to enter student id
 		idEntry = new JTextField(10); 
 		idEntry.setToolTipText("Enter ID's here");
-		idEntry.setFont(new Font("Times New Roman",Font.PLAIN,24));
+		idEntry.setFont(new Font("Times New Roman",Font.PLAIN,28));
 		this.add(idEntry);
 
 		//More filler!
 		this.add(Box.createHorizontalStrut(25));
 		
 		//JButton for entering ID's
-		enterID = new JButton("Enter ID");
+		enterID = new JButton(" Enter ID ");
 		enterID.setHorizontalAlignment(AbstractButton.CENTER);
 		enterID.setVerticalAlignment(AbstractButton.CENTER);
-		enterID.setFont(new Font("Times New Roman",Font.PLAIN,24));
+		enterID.setFont(new Font("Times New Roman",Font.PLAIN,28));
 		this.add(enterID);
 		enterID.addActionListener(this);
 		
 		//Creates and adds bevel to Border of JButtons
-		Border raisedbevel = BorderFactory.createSoftBevelBorder(BevelBorder.RAISED);
-		Border loweredbevel = BorderFactory.createSoftBevelBorder(BevelBorder.LOWERED);
+		Border raisedbevel = BorderFactory.createSoftBevelBorder(BevelBorder.RAISED,Color.DARK_GRAY,Color.BLACK);
+		Border loweredbevel = BorderFactory.createSoftBevelBorder(BevelBorder.LOWERED,Color.DARK_GRAY,Color.BLACK);
 		Border border = BorderFactory.createCompoundBorder(raisedbevel, loweredbevel);
 		enterID.setBorder(border);
 		

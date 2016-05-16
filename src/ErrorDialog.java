@@ -6,12 +6,13 @@ import java.beans.PropertyChangeListener;
 
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 
 public class ErrorDialog extends JDialog implements PropertyChangeListener {
 	private JOptionPane optionPane;
 	
-	private String btnString = "OK";
+	private String btnString = " OK ";
 	private String msgString1;
 	
 	public ErrorDialog(){
@@ -31,7 +32,8 @@ public class ErrorDialog extends JDialog implements PropertyChangeListener {
                 options,
                 options[0]);
     	//Set font
-    	optionPane.setFont(new Font("Times New Roman",Font.PLAIN,24));
+        UIManager.put("OptionPane.messageFont", new Font("Times New Roman",Font.PLAIN,28));
+        UIManager.put("OptionPane.buttonFont", new Font("Times New Roman",Font.PLAIN,28));
     	
     	//Make this dialog display it.
         setContentPane(optionPane);
@@ -54,9 +56,9 @@ public class ErrorDialog extends JDialog implements PropertyChangeListener {
         optionPane.addPropertyChangeListener(this);
         
         //Set size of dialog and set resizable to false
-        setSize(250, 150);
+        setSize(500, 200);
         this.setResizable(false);
-        this.setLocation(GUI.guiWidth/2-125, GUI.guiLength/2-75);
+        this.setLocation(GUI.guiWidth/2-250, GUI.guiLength/2-100);
     	this.setVisible(true);
     	
 	}

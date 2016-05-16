@@ -6,6 +6,7 @@ import java.beans.PropertyChangeListener;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 
 
 public class PasswordDialog extends JDialog implements ActionListener,PropertyChangeListener {
@@ -15,8 +16,8 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
 	
     private JOptionPane optionPane;
 
-    private String btnString1 = "Enter";
-    private String msgString1 = "Please enter the password you would like to use to exit the program ";
+    private String btnString1 = " Enter ";
+    private String msgString1 = "Please enter the password you'd like to use to exit the program: ";
     
     private GUI myGUI;
     
@@ -33,7 +34,7 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
 		//Create an array of the text and components to be displayed.
 		textField = new JTextField(10);
 		//Set font
-		textField.setFont(new Font("Times New Roman",Font.PLAIN,24));
+		textField.setFont(new Font("Times New Roman",Font.PLAIN,28));
 		
         Object[] array = {msgString1, textField};
         
@@ -49,7 +50,8 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
                                     options,
                                     options[0]);
         //Set font
-        optionPane.setFont(new Font("Times New Roman",Font.PLAIN,20));
+        UIManager.put("OptionPane.messageFont", new Font("Times New Roman",Font.PLAIN,28));
+        UIManager.put("OptionPane.buttonFont", new Font("Times New Roman",Font.PLAIN,28));
         
         //Make this dialog display it.
         setContentPane(optionPane);
@@ -82,10 +84,10 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
         optionPane.addPropertyChangeListener(this);
         
         //Set size of dialog and set resizable to false
-        setSize(400, 250);
+        setSize(760, 250);
         this.setResizable(false);
         
-        this.setLocation(GUI.guiWidth/2-200, GUI.guiLength/2-125);
+        this.setLocation(GUI.guiWidth/2-380, GUI.guiLength/2-125);
     }
 
     /** This method handles events for the text field. */
@@ -136,7 +138,7 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
             	} else {//If passwordAttempt hasn't been filled or has been reset
             		if (btnString1.equals(value)) {
             			passwordAttempt = textField.getText();
-            			Object[] array = {"Enter password again", textField};
+            			Object[] array = {"Enter the password again to confirm: ", textField};
             			optionPane.setMessage(array);
             			textField.grabFocus();
             		} else { //user closed dialog or clicked cancel
