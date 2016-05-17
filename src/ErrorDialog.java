@@ -20,6 +20,10 @@ public class ErrorDialog extends JDialog implements PropertyChangeListener {
 		this.setTitle("Invalid ID");
 		this.setAlwaysOnTop(true);
 		
+		//Set font
+		UIManager.put("OptionPane.messageFont", new Font("Times New Roman",Font.PLAIN,28));
+        UIManager.put("OptionPane.buttonFont", new Font("Times New Roman",Font.PLAIN,28));
+    	
 		msgString1 = "Error: 6-digit ID not entered";
 		
 		Object[] options = {btnString};
@@ -31,10 +35,7 @@ public class ErrorDialog extends JDialog implements PropertyChangeListener {
                 null,
                 options,
                 options[0]);
-    	//Set font
-        UIManager.put("OptionPane.messageFont", new Font("Times New Roman",Font.PLAIN,28));
-        UIManager.put("OptionPane.buttonFont", new Font("Times New Roman",Font.PLAIN,28));
-    	
+        
     	//Make this dialog display it.
         setContentPane(optionPane);
     	
@@ -56,9 +57,9 @@ public class ErrorDialog extends JDialog implements PropertyChangeListener {
         optionPane.addPropertyChangeListener(this);
         
         //Set size of dialog and set resizable to false
-        setSize(500, 200);
+        setSize(700, 300);
         this.setResizable(false);
-        this.setLocation(GUI.guiWidth/2-250, GUI.guiLength/2-100);
+        this.setLocation(GUI.guiWidth/2-350, GUI.guiLength/2-150);
     	this.setVisible(true);
     	
 	}
