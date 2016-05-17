@@ -14,7 +14,7 @@ import javax.swing.border.Border;
 public class ButtonPanel extends JPanel implements ActionListener{
 	private JButton exitWithPass;
 	
-	public ButtonPanel(){
+	public ButtonPanel(){ 
 		this.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0)); 
 		this.setOpaque(true);
 		
