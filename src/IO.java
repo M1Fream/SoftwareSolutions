@@ -24,7 +24,7 @@ public class IO {
 			e.printStackTrace();
 		}
 		
-		outFile = new File("out.txt");
+		outFile = new File("out.csv");
 		try {
 			outFile.createNewFile();
 			outFileWriter = new FileWriter(outFile, true);

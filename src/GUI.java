@@ -103,7 +103,7 @@ public class GUI extends JFrame{
 			
 			cd = new CustomDialog(this);
 			this.getRootPane().setDefaultButton(promPanel.getSubmitButton());
-
+			//setResizable(false);
 	}
 			
 	//Toggle visibility

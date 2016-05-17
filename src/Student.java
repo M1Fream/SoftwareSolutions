@@ -48,4 +48,7 @@ public class Student {
 	public String getOut() {
 		return (new Date()).toString() + "," + myName + "," + myID + "," + myGrade;
 	}
+	public boolean equals(Student other) {
+		return myID==other.myID;
+	}
 }

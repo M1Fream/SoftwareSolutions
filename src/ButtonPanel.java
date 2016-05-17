@@ -22,16 +22,16 @@ public class ButtonPanel extends JPanel implements ActionListener{
 		exitWithPass = new JButton(" Save and quit program "); 
 		exitWithPass.setHorizontalAlignment(AbstractButton.CENTER);
 		exitWithPass.setVerticalAlignment(AbstractButton.CENTER);
-		exitWithPass.setFont(new Font("Times New Roman",Font.PLAIN,28));
+		exitWithPass.setFont(new Font("Times New Roman",Font.PLAIN,32));
 		this.add(exitWithPass);
 		exitWithPass.setToolTipText("Finished signing out students?");
 		
 		//Creates and adds bevel to Border of JButtons
-		Border raisedbevel = BorderFactory.createSoftBevelBorder(BevelBorder.RAISED,Color.DARK_GRAY,Color.BLACK);
+		/*Border raisedbevel = BorderFactory.createSoftBevelBorder(BevelBorder.RAISED,Color.DARK_GRAY,Color.BLACK);
 		Border loweredbevel = BorderFactory.createSoftBevelBorder(BevelBorder.LOWERED,Color.DARK_GRAY,Color.BLACK);
 		Border border = BorderFactory.createCompoundBorder(raisedbevel, loweredbevel);
 		exitWithPass.setBorder(border);
-		
+		*/
 		//Add ActionListeners 
 		exitWithPass.addActionListener(this);
 	}

@@ -72,7 +72,7 @@ public class CustomDialog extends JDialog implements ActionListener, PropertyCha
 
         textField = new JTextField(10);
         //Set font
-        textField.setFont(new Font("Times New Roman",Font.PLAIN,28));
+        textField.setFont(new Font("Times New Roman",Font.PLAIN,32));
 
         //Create an array of the text and components to be displayed.
         String msgString1 = "Please enter the password to save and exit: ";
@@ -91,8 +91,8 @@ public class CustomDialog extends JDialog implements ActionListener, PropertyCha
                                     options,
                                     options[0]);
         //Set font
-        UIManager.put("OptionPane.messageFont", new Font("Times New Roman",Font.PLAIN,28));
-        UIManager.put("OptionPane.buttonFont", new Font("Times New Roman",Font.PLAIN,28));
+        UIManager.put("OptionPane.messageFont", new Font("Times New Roman",Font.PLAIN,32));
+        UIManager.put("OptionPane.buttonFont", new Font("Times New Roman",Font.PLAIN,32));
         
         //Make this dialog display it.
         setContentPane(optionPane);
