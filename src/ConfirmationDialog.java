@@ -33,7 +33,8 @@ public class ConfirmationDialog extends JDialog implements PropertyChangeListene
     	
     	msgString1 = "Are you "+myStudent.getName()+"?";
     	if (myStudent.getID()==328714) {
-    		msgString1 = "Are you the eternal lord of the universe?";
+    		//msgString1 = "Are you the Eternal Lord Of The Universe\u2122?";
+    		msgString1 = "Are you Batman?";
     	}
     	//Create the JOptionPane.
     	optionPane = new JOptionPane(msgString1,
@@ -96,11 +97,16 @@ public class ConfirmationDialog extends JDialog implements PropertyChangeListene
                     JOptionPane.UNINITIALIZED_VALUE);
             if (btnString2.equals(value)) { //If user didn't confirm name
             	Globals.studentList.remove(Globals.studentList.size()-1); //Remove the student who was not confirmed
-            	close();
             }else if (btnString1.equals(value)){
-            	IO.write(Globals.studentList.get(Globals.studentList.size()-1));
-            	close();
+            	if (Globals.studentList.size()>1 && Globals.studentList.get(Globals.studentList.size()-1).equals(Globals.studentList.get(Globals.studentList.size()-2))) {
+            		System.out.println("Don't do that");
+            		Globals.studentList.remove(Globals.studentList.size()-1);
+            	} else {
+            		IO.write(Globals.studentList.get(Globals.studentList.size()-1));
+            	}
+            	
             }
+            close();
 
         }
    } 

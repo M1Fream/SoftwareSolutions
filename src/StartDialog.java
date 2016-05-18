@@ -21,8 +21,8 @@ public class StartDialog extends JDialog implements PropertyChangeListener{
 		myGUI = gui;
 		
 		//Set font
-		UIManager.put("OptionPane.messageFont", new Font("Times New Roman",Font.PLAIN,28));
-        UIManager.put("OptionPane.buttonFont", new Font("Times New Roman",Font.PLAIN,28));
+		UIManager.put("OptionPane.messageFont", new Font("Times New Roman",Font.PLAIN,36));
+        UIManager.put("OptionPane.buttonFont", new Font("Times New Roman",Font.PLAIN,36));
     	
 		this.setTitle("Welcome");
 		this.setAlwaysOnTop(true);
@@ -60,9 +60,9 @@ public class StartDialog extends JDialog implements PropertyChangeListener{
         optionPane.addPropertyChangeListener(this);
         
         //Set size of dialog and set resizable to false
-        setSize(700, 350);
+        setSize(800, 400);
         this.setResizable(false);
-        this.setLocation(GUI.guiWidth/2-350, GUI.guiLength/2-175);
+        this.setLocation(GUI.guiWidth/2-400, GUI.guiLength/2-200);
     	this.setVisible(true);
     	
 	}

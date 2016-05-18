@@ -27,6 +27,10 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
     
 	public PasswordDialog(GUI gui) {
 		super(gui,true);
+		//Set font
+        UIManager.put("OptionPane.messageFont", new Font("Times New Roman",Font.PLAIN,32));
+        UIManager.put("OptionPane.buttonFont", new Font("Times New Roman",Font.PLAIN,32));
+        
 		myGUI=gui;
 		
 		this.setTitle("Set password");
@@ -34,7 +38,7 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
 		//Create an array of the text and components to be displayed.
 		textField = new JTextField(10);
 		//Set font
-		textField.setFont(new Font("Times New Roman",Font.PLAIN,28));
+		textField.setFont(new Font("Times New Roman",Font.PLAIN,32));
 		
         Object[] array = {msgString1, textField};
         
@@ -49,9 +53,6 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
                                     null,
                                     options,
                                     options[0]);
-        //Set font
-        UIManager.put("OptionPane.messageFont", new Font("Times New Roman",Font.PLAIN,28));
-        UIManager.put("OptionPane.buttonFont", new Font("Times New Roman",Font.PLAIN,28));
         
         //Make this dialog display it.
         setContentPane(optionPane);
@@ -84,10 +85,10 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
         optionPane.addPropertyChangeListener(this);
         
         //Set size of dialog and set resizable to false
-        setSize(760, 250);
+        setSize(900, 300);
         this.setResizable(false);
         
-        this.setLocation(GUI.guiWidth/2-380, GUI.guiLength/2-125);
+        this.setLocation(GUI.guiWidth/2-450, GUI.guiLength/2-150);
     }
 
     /** This method handles events for the text field. */
@@ -140,6 +141,8 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
             			passwordAttempt = textField.getText();
             			Object[] array = {"Enter the password again to confirm: ", textField};
             			optionPane.setMessage(array);
+            			UIManager.put("OptionPane.messageFont", new Font("Times New Roman",Font.PLAIN,32));
+            	        UIManager.put("OptionPane.buttonFont", new Font("Times New Roman",Font.PLAIN,32));
             			textField.grabFocus();
             		} else { //user closed dialog or clicked cancel
             			typedText = null;   
