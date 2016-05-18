@@ -19,19 +19,18 @@ public class IO {
 	public static void init() {
 		Scanner file = null;
 		try {
-			file = new Scanner(new File("SMCS10_noGrades.mer"));
+			file = new Scanner(new File("SMCS10_noGrades.mer")); //MUST BE CHANGED BEFORE IMPLEMENTATION
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 		
-		outFile = new File("out.csv");
+		outFile = new File("signout.csv");
 		try {
 			outFile.createNewFile();
 			outFileWriter = new FileWriter(outFile, true);
 			outPrintWriter = new PrintWriter(outFileWriter);
 			//outPrintWriter.print("Hello");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -53,12 +52,7 @@ public class IO {
 			}
 			studentData.add(aStudent);
 		}
-		//System.out.println(studentData.size());
-		/*for(ArrayList<String> student: studentData){
-			System.out.println(student.get(field.get("ID")));
-		}*/
 		//eliminate duplicates
-		//System.out.println("**********************************************");
 		for(i = 0; i < studentData.size();  i++){
 			String id = studentData.get(i).get(field.get("ID"));
 			for(int j = studentData.size() - 1; j > i; j--){
