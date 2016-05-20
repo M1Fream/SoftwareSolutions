@@ -19,7 +19,7 @@ public class IO {
 	public static void init() {
 		Scanner file = null;
 		try {
-			file = new Scanner(new File("SMCS10_noGrades.mer"));
+			file = new Scanner(new File("in.mer"));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
