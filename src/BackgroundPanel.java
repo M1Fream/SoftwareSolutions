@@ -39,7 +39,11 @@ class BackgroundPanel extends JPanel{
 		}
 		label=new JLabel(new ImageIcon(image));
 		
+<<<<<<< HEAD
 		Dimension d = new Dimension(GUI.guiWidth, 234);
+=======
+		Dimension d = new Dimension(GUI.guiWidth, 156);
+>>>>>>> origin/master
 		this.setPreferredSize(d);
 		this.setMinimumSize(d);
 		this.setMaximumSize(d);
@@ -51,7 +55,11 @@ class BackgroundPanel extends JPanel{
 	protected void paintComponent(Graphics g){
 		super.paintComponent(g); 
 		if (image != null)
+<<<<<<< HEAD
 			g.drawImage(image, this.getWidth()/2-225  ,this.getHeight()/2-117,450,234,this);
+=======
+			g.drawImage(image, this.getWidth()/2-150,this.getHeight()/2-78,300,156,this);
+>>>>>>> origin/master
 		else
 			System.out.println("Error");
 	}

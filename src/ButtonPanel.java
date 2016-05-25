@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,14 +27,13 @@ public class ButtonPanel extends JPanel implements ActionListener{
 		this.add(exitWithPass);
 		exitWithPass.setToolTipText("Finished signing out students?");
 		
-		//Creates and adds bevel to Border of JButtons
-		/*Border raisedbevel = BorderFactory.createSoftBevelBorder(BevelBorder.RAISED,Color.DARK_GRAY,Color.BLACK);
-		Border loweredbevel = BorderFactory.createSoftBevelBorder(BevelBorder.LOWERED,Color.DARK_GRAY,Color.BLACK);
-		Border border = BorderFactory.createCompoundBorder(raisedbevel, loweredbevel);
-		exitWithPass.setBorder(border);
-		*/
 		//Add ActionListeners 
 		exitWithPass.addActionListener(this);
+	
+		Dimension d = new Dimension(GUI.guiLength,100);
+		this.setPreferredSize(d);
+		this.setMaximumSize(d);
+		this.setMinimumSize(d);
 	}
 
 	@Override
