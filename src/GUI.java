@@ -56,6 +56,11 @@ public class GUI extends JFrame{
 			p6.setOpaque(true);
 			p6.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0));
 			p6.setLayout(new BorderLayout());
+			Dimension d2 = new Dimension(guiWidth,guiLength);
+			p.setPreferredSize(d2);
+			p.setMaximumSize(d2);
+			p.setMinimumSize(d2);
+			
 			
 			//Invisible box
 			p.add(Box.createRigidArea(new Dimension(0,50)),BorderLayout.NORTH);
