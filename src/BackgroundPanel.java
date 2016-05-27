@@ -13,7 +13,7 @@ class BackgroundPanel extends JPanel{
 	private String myImageName; //Name of jpg used for background
 	private JLabel label; //Label to hold image
 	
-	Image image;
+	Image image; // This image is an image
 	
 	public BackgroundPanel(String s){
 		//Set background color and opacity
@@ -21,7 +21,7 @@ class BackgroundPanel extends JPanel{
 		this.setOpaque(true);
 		
 		//Determine which Falcon jpg to use based on String from constructor
-		if(s.equals("falcon")){
+		if(s.equals("falcon")){ // try a bunch of images because why not
 			try{
 				myImageName="falcon";
 				image = javax.imageio.ImageIO.read(new java.net.URL(getClass().getResource("falcon.jpg"), "falcon.jpg"));
@@ -52,8 +52,8 @@ class BackgroundPanel extends JPanel{
 	}
 	
 	@Override
-	protected void paintComponent(Graphics g){
-		super.paintComponent(g); 
+	protected void paintComponent(Graphics g){ // protected is magic
+		super.paintComponent(g); // it was hard to write, it should be hard to understand
 		if (image != null)
 			g.drawImage(image, this.getWidth()/2-150,this.getHeight()/2-78,300,156,this);
 		else
@@ -73,7 +73,7 @@ class BackgroundPanel extends JPanel{
 	}
 	
 	public void rainbowBackground(){ //Never got this working
-		try {
+		try { // don't worry we (probably) didn't use it
 			setPic(javax.imageio.ImageIO.read(new java.net.URL(getClass().getResource(myImageName+"Rainbow.gif"), myImageName+"Rainbow.gif")));
 		}catch(Exception e){ }
 		resetPic();

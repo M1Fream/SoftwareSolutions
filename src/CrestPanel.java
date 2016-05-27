@@ -8,10 +8,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
-public class CrestPanel extends JPanel{
+public class CrestPanel extends JPanel{ // Just look at button panel, it has the same code
 	private JLabel label; //Label to hold image
 	
-	Image image;
+	Image image; // Another image named image, YAY
 	
 	public CrestPanel(){
 		//Set background color and opacity
@@ -28,7 +28,7 @@ public class CrestPanel extends JPanel{
 		
 		//Constrain dimensions of this
 		Dimension d = new Dimension(230, 220);
-		this.setPreferredSize(d);
+		this.setPreferredSize(d); //This again
 		this.setMinimumSize(d);
 		this.setMaximumSize(d);
 	}

@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 
-public class ConfirmationDialog extends JDialog implements PropertyChangeListener {
+public class ConfirmationDialog extends JDialog implements PropertyChangeListener { //JDialog does everything
 	private JOptionPane optionPane;
 
 	//Strings to be used in optionPane
@@ -80,11 +80,8 @@ public class ConfirmationDialog extends JDialog implements PropertyChangeListene
     /** This method reacts to state changes in the option pane. */
     public void propertyChange(PropertyChangeEvent e) {
         String prop = e.getPropertyName();
-        if (isVisible()
-         && (e.getSource() == optionPane)
-         && (JOptionPane.VALUE_PROPERTY.equals(prop) ||
-             JOptionPane.INPUT_VALUE_PROPERTY.equals(prop))) {
-            Object value = optionPane.getValue();
+        if (isVisible() && (e.getSource() == optionPane) && (JOptionPane.VALUE_PROPERTY.equals(prop) || JOptionPane.INPUT_VALUE_PROPERTY.equals(prop))) {
+            Object value = optionPane.getValue(); // This is an object
 
             if (value == JOptionPane.UNINITIALIZED_VALUE) {
                 //ignore reset
@@ -99,8 +96,8 @@ public class ConfirmationDialog extends JDialog implements PropertyChangeListene
             if (btnString2.equals(value)) { //If user didn't confirm name
             	Globals.studentList.remove(Globals.studentList.size()-1); //Remove the student who was not confirmed
             }else if (btnString1.equals(value)){
-            	if (Globals.studentList.size()>1 && Globals.studentList.get(Globals.studentList.size()-1).equals(Globals.studentList.get(Globals.studentList.size()-2))) {//Remove two-n-a-row duplicates
-            		System.out.println("Don't do that");
+            	if (Globals.studentList.size()>1 && Globals.studentList.get(Globals.studentList.size()-1).equals(Globals.studentList.get(Globals.studentList.size()-2))) {//Remove two-in-a-row duplicates //I'm sorry
+            		System.out.println("Don't do that"); //This probably won't happen anyway
             		Globals.studentList.remove(Globals.studentList.size()-1);
             	} else {
             		IO.write(Globals.studentList.get(Globals.studentList.size()-1));

@@ -30,9 +30,9 @@ public class ButtonPanel extends JPanel implements ActionListener{
 	
 		//Constrain dimensions of this
 		Dimension d = new Dimension(GUI.guiLength,100);
-		this.setPreferredSize(d);
-		this.setMaximumSize(d);
-		this.setMinimumSize(d);
+		this.setPreferredSize(d); // really, really, really set it to be this size
+		this.setMaximumSize(d); // anotha one
+		this.setMinimumSize(d); // and anotha one
 	}
 
 	@Override
