@@ -12,7 +12,7 @@ public class Student {
 		}
 		myID=ID;
 		myName=IO.get(ID, "FIRST") +" "+ IO.get(ID, "LAST"); //look up name in database
-		myGrade=Integer.parseInt(IO.get(ID, "GC")); //look up grade in database
+		myGrade=Integer.parseInt(IO.get(ID, "GR")); //look up grade in database
 		paid=false; //look up in database // Just kidding i have no idea what to do here
 		if(myID==328714) {
 			System.out.println("Hello master");
