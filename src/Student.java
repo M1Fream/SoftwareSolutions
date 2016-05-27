@@ -5,7 +5,6 @@ public class Student {
 	private int myID;
 	private String myName;
 	private int myGrade;
-	private boolean paid; //Disregard all code pertaining to paid, it was never implemented
 	public Student(int ID) throws IDoutOfRangeException {
 		if (ID<100000 || ID>999999) {
 			throw new IDoutOfRangeException();
@@ -13,7 +12,6 @@ public class Student {
 		myID=ID;
 		myName=IO.get(ID, "FIRST") +" "+ IO.get(ID, "LAST"); //look up name in database
 		myGrade=Integer.parseInt(IO.get(ID, "GR")); //look up grade in database
-		paid=false; //look up in database // Just kidding i have no idea what to do here
 		if(myID==328714) {
 			System.out.println("Hello master");
 		}
@@ -27,16 +25,14 @@ public class Student {
 		myID=999999;
 		myName="THIS IS NOT A STUDENT";
 		myGrade=0;
-		paid=false;
 	}
 	public Student(int ID, String name, int grade, boolean paid) {
 		myID=ID;
 		myName=name;
 		myGrade=grade;
-		this.paid=paid; //add sanity checks to this code // or not :)
 	}
 	public String toString() {
-		return myName+", "+myID+", "+myGrade+", paid: "+paid;
+		return myName+", "+myID+", "+myGrade;
 	}
 	public String getName(){
 		return myName;

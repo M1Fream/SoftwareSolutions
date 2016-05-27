@@ -21,7 +21,7 @@ public class ButtonPanel extends JPanel implements ActionListener{
 		exitWithPass = new JButton(" Save and quit program "); 
 		exitWithPass.setHorizontalAlignment(AbstractButton.CENTER);
 		exitWithPass.setVerticalAlignment(AbstractButton.CENTER);
-		exitWithPass.setFont(new Font("Times New Roman",Font.PLAIN,32));
+		exitWithPass.setFont(Globals.font);
 		this.add(exitWithPass);
 		exitWithPass.setToolTipText("Finished signing out students?");
 		

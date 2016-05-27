@@ -22,14 +22,14 @@ public class StartDialog extends JDialog implements PropertyChangeListener{
 		myGUI = gui;
 		
 		//Set font
-		UIManager.put("OptionPane.messageFont", new Font("Times New Roman",Font.PLAIN,36));
-        UIManager.put("OptionPane.buttonFont", new Font("Times New Roman",Font.PLAIN,36));
+		UIManager.put("OptionPane.messageFont", Globals.font);
+        UIManager.put("OptionPane.buttonFont", Globals.font);
     	
         //Set title and put on top
 		this.setTitle("Welcome");
 		this.setAlwaysOnTop(true);
 		
-		msgString1 = "Welcome to the Software Solutions Prom Sign-Out!";
+		msgString1 = " Welcome to the Software Solutions Prom Sign-Out! ";
 		
 		Object[] options = {btnString};
 		

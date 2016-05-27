@@ -46,8 +46,8 @@ public class ConfirmationDialog extends JDialog implements PropertyChangeListene
                 options[0]);
     	
     	//Set font
-        UIManager.put("OptionPane.messageFont", new Font("Times New Roman",Font.PLAIN,28));
-        UIManager.put("OptionPane.buttonFont", new Font("Times New Roman",Font.PLAIN,28));
+        UIManager.put("OptionPane.messageFont", Globals.font);
+        UIManager.put("OptionPane.buttonFont", Globals.font);
     	
     	//Make this dialog display it.
         setContentPane(optionPane);

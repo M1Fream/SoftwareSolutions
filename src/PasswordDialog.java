@@ -29,9 +29,10 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
     
 	public PasswordDialog(GUI gui) {
 		super(gui,true);
+		
 		//Set font
-        UIManager.put("OptionPane.messageFont", new Font("Times New Roman",Font.PLAIN,32));
-        UIManager.put("OptionPane.buttonFont", new Font("Times New Roman",Font.PLAIN,32));
+        UIManager.put("OptionPane.messageFont", Globals.font);
+        UIManager.put("OptionPane.buttonFont", Globals.font);
         
 		myGUI=gui;
 		
@@ -40,8 +41,9 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
 		
 		//Create an array of the text and components to be displayed.
 		textField = new JTextField(10);
+		
 		//Set font
-		textField.setFont(new Font("Times New Roman",Font.PLAIN,32));
+		textField.setFont(Globals.font);
 		
         Object[] array = {msgString1, textField};
         

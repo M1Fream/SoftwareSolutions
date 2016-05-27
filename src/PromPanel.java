@@ -21,11 +21,13 @@ public class PromPanel extends JPanel implements ActionListener{
 		this.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0)); 
 		this.setOpaque(true);
 		
+		//Set size
 		this.setSize(GUI.guiWidth, GUI.guiLength/2);
 		
+		//Make a label
 		JLabel idLabel = new JLabel();
 		idLabel.setText("Enter 6-digit student ID:"); //Displays text to show users where to type
-		idLabel.setFont(new Font("Times New Roman",Font.PLAIN,32)); //Set font
+		idLabel.setFont(Globals.font); //Set font
 		this.add(idLabel);
 		
 		//Functionless filler
@@ -44,7 +46,7 @@ public class PromPanel extends JPanel implements ActionListener{
 		enterID = new JButton(" Enter ID ");
 		enterID.setHorizontalAlignment(AbstractButton.CENTER);
 		enterID.setVerticalAlignment(AbstractButton.CENTER);
-		enterID.setFont(new Font("Times New Roman",Font.PLAIN,32));
+		enterID.setFont(Globals.font);
 		this.add(enterID);
 		enterID.addActionListener(this);
 		

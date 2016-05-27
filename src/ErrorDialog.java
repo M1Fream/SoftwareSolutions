@@ -22,8 +22,8 @@ public class ErrorDialog extends JDialog implements PropertyChangeListener {
 		this.setAlwaysOnTop(true);
 		
 		//Set font
-		UIManager.put("OptionPane.messageFont", new Font("Times New Roman",Font.PLAIN,32));
-        UIManager.put("OptionPane.buttonFont", new Font("Times New Roman",Font.PLAIN,32));
+		UIManager.put("OptionPane.messageFont", Globals.font);
+        UIManager.put("OptionPane.buttonFont", Globals.font);
     	
 		msgString1 = "Error: 6-digit ID not entered";
 		
