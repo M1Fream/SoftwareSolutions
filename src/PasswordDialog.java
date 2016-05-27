@@ -10,17 +10,19 @@ import javax.swing.UIManager;
 
 
 public class PasswordDialog extends JDialog implements ActionListener,PropertyChangeListener {
-	private String typedText = null;
-    private JTextField textField;
+	private String typedText = null; //Contains text typed by user
+    private JTextField textField; //TextField for user to type in
 	private String passwordAttempt;
 	
     private JOptionPane optionPane;
 
+    //Strings to be used in optionPane
     private String btnString1 = " Enter ";
     private String msgString1 = "Please enter the password you'd like to use to exit the program: ";
     
     private GUI myGUI;
     
+    //Get text typed by user
     public String getValidatedText() {
         return typedText;
     }
@@ -33,6 +35,7 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
         
 		myGUI=gui;
 		
+		//Set title
 		this.setTitle("Set password");
 		
 		//Create an array of the text and components to be displayed.
@@ -88,6 +91,7 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
         setSize(900, 300);
         this.setResizable(false);
         
+        //Set location
         this.setLocation(GUI.guiWidth/2-450, GUI.guiLength/2-150);
     }
 

@@ -5,7 +5,7 @@ public class Student {
 	private int myID;
 	private String myName;
 	private int myGrade;
-	private boolean paid;
+	private boolean paid; //Disregard all code pertaining to paid, it was never implemented
 	public Student(int ID) throws IDoutOfRangeException {
 		if (ID<100000 || ID>999999) {
 			throw new IDoutOfRangeException();
@@ -21,7 +21,7 @@ public class Student {
 			System.out.println("Hey GUI-Maker");
 		}
 	}
-	public Student() {
+	public Student() { //SHOULD NOT BE INSTANTIATED
 		System.out.println("SOMEONE HAS MADE A TERRIBLE MISTAKE");
 		System.out.println("INSTANTIATING A DEFAULT STUDENT");
 		myID=999999;

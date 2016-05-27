@@ -5,17 +5,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.AbstractButton;
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.Border;
 
 
 public class ButtonPanel extends JPanel implements ActionListener{
 	private JButton exitWithPass;
 	
 	public ButtonPanel(){ 
+		//Set background color and opacity
 		this.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0)); 
 		this.setOpaque(true);
 		
@@ -30,6 +28,7 @@ public class ButtonPanel extends JPanel implements ActionListener{
 		//Add ActionListeners 
 		exitWithPass.addActionListener(this);
 	
+		//Constrain dimensions of this
 		Dimension d = new Dimension(GUI.guiLength,100);
 		this.setPreferredSize(d);
 		this.setMaximumSize(d);
@@ -37,8 +36,7 @@ public class ButtonPanel extends JPanel implements ActionListener{
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent e) { //If button is pressed, set CustomDialog to visible
 		GUI.setCustomDialogVisible(true);
-		
 	}
 }

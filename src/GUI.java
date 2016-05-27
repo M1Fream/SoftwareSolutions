@@ -8,6 +8,7 @@ public class GUI extends JFrame{
 	private static BackgroundPanel bp;
 	private static PromPanel promPanel;
 	
+	//Width and length of gui
 	public static int guiWidth = 1280;
 	public static int guiLength = 1024;
 	
@@ -19,9 +20,11 @@ public class GUI extends JFrame{
 			this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE); //Default is do nothing on close
 			this.setAlwaysOnTop(true); //Always top window
 			this.setLayout(new BorderLayout()); //Set frame's layout
+			
+			//Set background color
 			this.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0));
 			
-			//JPanels to store stuff
+			//JPanels to store stuff later
 			JPanel p = new JPanel();
 			p.setOpaque(true);
 			p.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0));
@@ -56,6 +59,7 @@ public class GUI extends JFrame{
 			p6.setOpaque(true);
 			p6.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0));
 			p6.setLayout(new BorderLayout());
+			
 			Dimension d2 = new Dimension(guiWidth,guiLength);
 			p.setPreferredSize(d2);
 			p.setMaximumSize(d2);
@@ -69,13 +73,13 @@ public class GUI extends JFrame{
 			promPanel = new PromPanel(this);
 			p2.add(promPanel,BorderLayout.NORTH);
 			
-			//Invisible box
+			//Invisible box 2
 			p3.add(Box.createRigidArea(new Dimension(0,50)),BorderLayout.NORTH);
 			
 			//Add CrestPanel
 			p4.add(new CrestPanel(),BorderLayout.NORTH);
 			
-			//Invisible box
+			//Invisible box 3
 			p5.add(Box.createRigidArea(new Dimension(0,50)),BorderLayout.NORTH);
 			
 			//Add BackgroundPanel with falcon.jpg, falcon2.jpg, or falcon3.jpg, based on constructor argument
@@ -94,7 +98,7 @@ public class GUI extends JFrame{
 			p.add(p2,BorderLayout.CENTER);
 			this.add(p,BorderLayout.NORTH);
 			
-			this.setSize(1280, 1024); //Default frame size
+			this.setSize(1280, 1024); //Set default frame size
 			
 			this.setExtendedState(JFrame.MAXIMIZED_BOTH); //Set frame to max size 
 			this.setVisible(true); //Make frame actually visible
@@ -108,14 +112,14 @@ public class GUI extends JFrame{
 			
 			cd = new CustomDialog(this);
 			this.getRootPane().setDefaultButton(promPanel.getSubmitButton());
-			//setResizable(false);
 	}
 			
-	//Toggle visibility
+	//Toggle visibility of CustomDialog
 	public static void setCustomDialogVisible(boolean b){
 		cd.setVisible(b);
 	}
 	
+	//Toggle visibility of PasswordDialog
 	public static void setPasswordDialogVisible(boolean b){
 		pd.setVisible(b);
 	}
@@ -125,7 +129,7 @@ public class GUI extends JFrame{
 		this.dispose();
 	}
 	
-	public void rainbowBackground(){
+	public void rainbowBackground(){ //Not fully-functioning
 		bp.rainbowBackground();
 	}
 	

@@ -10,15 +10,17 @@ import javax.swing.JPanel;
 
 //Modified from http://www.coderanch.com/t/660351/Wiki/Background-Image-JPanel
 class BackgroundPanel extends JPanel{ 
-	private String myImageName;
-	private JLabel label;
+	private String myImageName; //Name of jpg used for background
+	private JLabel label; //Label to hold image
 	
 	Image image;
 	
 	public BackgroundPanel(String s){
+		//Set background color and opacity
 		this.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0)); 
 		this.setOpaque(true);
 		
+		//Determine which Falcon jpg to use based on String from constructor
 		if(s.equals("falcon")){
 			try{
 				myImageName="falcon";
@@ -37,13 +39,11 @@ class BackgroundPanel extends JPanel{
 		}else{ //THIS CODE SHOULD NOT BE REACHED
 			System.out.println("Error: invalid image for BackgroundPanel");
 		}
+		//Set label to contain image
 		label=new JLabel(new ImageIcon(image));
 		
-<<<<<<< HEAD
-		Dimension d = new Dimension(GUI.guiWidth, 234);
-=======
+		//Constrain dimensions of this
 		Dimension d = new Dimension(GUI.guiWidth, 156);
->>>>>>> origin/master
 		this.setPreferredSize(d);
 		this.setMinimumSize(d);
 		this.setMaximumSize(d);
@@ -55,26 +55,24 @@ class BackgroundPanel extends JPanel{
 	protected void paintComponent(Graphics g){
 		super.paintComponent(g); 
 		if (image != null)
-<<<<<<< HEAD
-			g.drawImage(image, this.getWidth()/2-225  ,this.getHeight()/2-117,450,234,this);
-=======
 			g.drawImage(image, this.getWidth()/2-150,this.getHeight()/2-78,300,156,this);
->>>>>>> origin/master
 		else
 			System.out.println("Error");
 	}
 	
+	//Used to change background picture
 	private void setPic(Image image) {
 		label.setIcon(new ImageIcon(image));
 	}
 	
+	//Reset picture based on default specified in constructor
 	private void resetPic(){
 		try {
 			setPic(javax.imageio.ImageIO.read(new java.net.URL(getClass().getResource(myImageName+".jpg"), myImageName+".jpg")));
 		} catch (Exception e){ }
 	}
 	
-	public void rainbowBackground(){ //For the lolz
+	public void rainbowBackground(){ //Never got this working
 		try {
 			setPic(javax.imageio.ImageIO.read(new java.net.URL(getClass().getResource(myImageName+"Rainbow.gif"), myImageName+"Rainbow.gif")));
 		}catch(Exception e){ }

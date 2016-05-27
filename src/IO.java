@@ -19,11 +19,7 @@ public class IO {
 	public static void init() {
 		Scanner file = null;
 		try {
-<<<<<<< HEAD
-			file = new Scanner(new File("SMCS10_noGrades.mer")); //MUST BE CHANGED BEFORE IMPLEMENTATION
-=======
 			file = new Scanner(new File("in.mer"));
->>>>>>> origin/master
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

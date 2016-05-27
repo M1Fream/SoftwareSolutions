@@ -12,11 +12,12 @@ import javax.swing.UIManager;
 public class ErrorDialog extends JDialog implements PropertyChangeListener {
 	private JOptionPane optionPane;
 	
+	//Strings to be used in optionPane
 	private String btnString = " OK ";
 	private String msgString1;
 	
 	public ErrorDialog(){
-
+		//Set title and put on top
 		this.setTitle("Invalid ID");
 		this.setAlwaysOnTop(true);
 		
@@ -59,6 +60,8 @@ public class ErrorDialog extends JDialog implements PropertyChangeListener {
         //Set size of dialog and set resizable to false
         setSize(700, 200);
         this.setResizable(false);
+        
+        //Set location and visibility
         this.setLocation(GUI.guiWidth/2-350, GUI.guiLength/2-100);
     	this.setVisible(true);
     	

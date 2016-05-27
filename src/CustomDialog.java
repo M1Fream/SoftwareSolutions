@@ -39,17 +39,19 @@ import java.awt.event.*;
 /* 1.4 example used by DialogDemo.java. */
 public class CustomDialog extends JDialog implements ActionListener, PropertyChangeListener {
 	
-    private String typedText = null;
-    private JTextField textField;
+    private String typedText = null; //Contains text typed by user
+    private JTextField textField; //TextField for user to type text into
 
     private String password;
     private JOptionPane optionPane;
 
+    //Strings to be used in optionPane
     private String btnString1 = " Enter ";
     private String btnString2 = " Cancel ";
 
     private GUI myGUI;
     
+    //Set password to pass
     void setPassword(String pass){
     	password=pass;
     }
@@ -67,10 +69,11 @@ public class CustomDialog extends JDialog implements ActionListener, PropertyCha
         super(gui, true);
         myGUI=gui;
         
-
+        //Set title
         this.setTitle("Save and quit");
 
         textField = new JTextField(10);
+        
         //Set font
         textField.setFont(new Font("Times New Roman",Font.PLAIN,32));
 
@@ -127,6 +130,7 @@ public class CustomDialog extends JDialog implements ActionListener, PropertyCha
         setSize(600, 250);
         this.setResizable(false);
         
+        //Set location
         this.setLocation(GUI.guiWidth/2-300, GUI.guiLength/2-125);
         
         //Make invisible until button is pressed

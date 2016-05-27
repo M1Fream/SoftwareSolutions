@@ -12,6 +12,7 @@ import javax.swing.UIManager;
 public class ConfirmationDialog extends JDialog implements PropertyChangeListener {
 	private JOptionPane optionPane;
 
+	//Strings to be used in optionPane
     private String btnString1 = " Yes ";
     private String btnString2 = " No ";
     private String msgString1;
@@ -24,16 +25,16 @@ public class ConfirmationDialog extends JDialog implements PropertyChangeListene
     	myGUI = gui;
     	myStudent = s;
     	
+    	//Set title
     	this.setTitle("Confirm student");
     	
     	//Create an array specifying the number of dialog buttons and their text.
     	Object[] options = {btnString1,btnString2};
     	
-    	//Message specific for ID just entered.
-    	
+    	//Message specific for ID just entered
     	msgString1 = "Are you "+myStudent.getName()+"?";
+    	
     	if (myStudent.getID()==328714) {
-    		//msgString1 = "Are you the Eternal Lord Of The Universe\u2122?";
     		msgString1 = "Are you Batman?";
     	}
     	//Create the JOptionPane.
@@ -98,7 +99,7 @@ public class ConfirmationDialog extends JDialog implements PropertyChangeListene
             if (btnString2.equals(value)) { //If user didn't confirm name
             	Globals.studentList.remove(Globals.studentList.size()-1); //Remove the student who was not confirmed
             }else if (btnString1.equals(value)){
-            	if (Globals.studentList.size()>1 && Globals.studentList.get(Globals.studentList.size()-1).equals(Globals.studentList.get(Globals.studentList.size()-2))) {
+            	if (Globals.studentList.size()>1 && Globals.studentList.get(Globals.studentList.size()-1).equals(Globals.studentList.get(Globals.studentList.size()-2))) {//Remove two-n-a-row duplicates
             		System.out.println("Don't do that");
             		Globals.studentList.remove(Globals.studentList.size()-1);
             	} else {

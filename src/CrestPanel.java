@@ -9,20 +9,24 @@ import javax.swing.JPanel;
 
 
 public class CrestPanel extends JPanel{
-	private JLabel label;
+	private JLabel label; //Label to hold image
 	
 	Image image;
 	
 	public CrestPanel(){
+		//Set background color and opacity
 		this.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0)); 
 		this.setOpaque(true);
 		
+		//Set image to crest.jpg 
 		try{
 			image = javax.imageio.ImageIO.read(new java.net.URL(getClass().getResource("crest.jpg"), "crest.jpg"));
 		}catch(Exception e){ }
 	
+		//Set label to contain image
 		label=new JLabel(new ImageIcon(image));
 		
+		//Constrain dimensions of this
 		Dimension d = new Dimension(230, 220);
 		this.setPreferredSize(d);
 		this.setMinimumSize(d);

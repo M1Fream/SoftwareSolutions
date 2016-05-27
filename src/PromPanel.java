@@ -10,13 +10,14 @@ import javax.swing.border.Border;
 public class PromPanel extends JPanel implements ActionListener{
 
 	private JButton enterID;
-	private JTextField idEntry;
+	private JTextField idEntry; //TextField for user input
 	
 	private GUI myGUI;
 	
 	public PromPanel(GUI gui){
 		myGUI = gui;
 		
+		//Set background color and opacity
 		this.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0)); 
 		this.setOpaque(true);
 		
@@ -24,7 +25,7 @@ public class PromPanel extends JPanel implements ActionListener{
 		
 		JLabel idLabel = new JLabel();
 		idLabel.setText("Enter 6-digit student ID:"); //Displays text to show users where to type
-		idLabel.setFont(new Font("Times New Roman",Font.PLAIN,32));
+		idLabel.setFont(new Font("Times New Roman",Font.PLAIN,32)); //Set font
 		this.add(idLabel);
 		
 		//Functionless filler
