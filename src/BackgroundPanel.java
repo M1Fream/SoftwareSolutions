@@ -55,9 +55,9 @@ class BackgroundPanel extends JPanel{
 	protected void paintComponent(Graphics g){ // protected is magic
 		super.paintComponent(g); // it was hard to write, it should be hard to understand
 		if (image != null)
-			g.drawImage(image, this.getWidth()/2-150,this.getHeight()/2-78,300,156,this);
+			g.drawImage(image, this.getWidth()/2-150,this.getHeight()/2-78,300,156,this);  //actually draw the image
 		else
-			System.out.println("Error");
+			System.out.println("Error"); //oh no
 	}
 	
 	//Used to change background picture
@@ -69,7 +69,7 @@ class BackgroundPanel extends JPanel{
 	private void resetPic(){
 		try {
 			setPic(javax.imageio.ImageIO.read(new java.net.URL(getClass().getResource(myImageName+".jpg"), myImageName+".jpg")));
-		} catch (Exception e){ }
+		} catch (Exception e){ } //catch it and do... NOTHING! YAY!
 	}
 	
 	public void rainbowBackground(){ //Never got this working
