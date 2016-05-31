@@ -1,10 +1,15 @@
 import java.util.Date;
 
-
+/** it's a student */
 public class Student {
 	private int myID;
 	private String myName;
 	private int myGrade;
+	/** looks up student data in database through IO class
+	 * does basic sanity checking
+	 * @param ID
+	 * @throws IDoutOfRangeException
+	 */
 	public Student(int ID) throws IDoutOfRangeException {
 		if (ID<100000 || ID>999999) {
 			throw new IDoutOfRangeException();
@@ -19,6 +24,9 @@ public class Student {
 			System.out.println("Hey GUI-Maker");
 		}
 	}
+	/** provided only for internal use, should never be used
+	 *
+	 */
 	public Student() { //SHOULD NOT BE INSTANTIATED
 		System.out.println("SOMEONE HAS MADE A TERRIBLE MISTAKE");
 		System.out.println("INSTANTIATING A DEFAULT STUDENT");

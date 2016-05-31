@@ -7,7 +7,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
+/** container for image
+ * does basically nothing else*/
 public class CrestPanel extends JPanel{ // Just look at button panel, it has the same code
 	private JLabel label; //Label to hold image
 	

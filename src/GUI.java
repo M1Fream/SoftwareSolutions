@@ -1,7 +1,8 @@
 import java.awt.*;
 import javax.swing.*;
 
-
+/** Main gui for the project
+ * controls everything else from it's main function */
 public class GUI extends JFrame{
 	private static CustomDialog cd;
 	private static PasswordDialog pd;
@@ -15,7 +16,9 @@ public class GUI extends JFrame{
 	public GUI(String string){
 		super(string);
 	}
-	
+	/** Main method for the entire program, called from Main and runs everything
+	 * @return Nothing
+	 * @param None*/
 	public void main(){
 			this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE); //Default is do nothing on close
 			this.setAlwaysOnTop(true); //Always top window
@@ -128,7 +131,7 @@ public class GUI extends JFrame{
 	public static void setPasswordDialogVisible(boolean b){
 		pd.setVisible(b);
 	}
-
+	/** Closes program*/
 	public void close(){
 		this.setVisible(false);
 		this.dispose();

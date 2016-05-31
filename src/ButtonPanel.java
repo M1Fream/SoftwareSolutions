@@ -8,7 +8,7 @@ import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-
+/** container for important button*/
 public class ButtonPanel extends JPanel implements ActionListener{
 	private JButton exitWithPass;
 	

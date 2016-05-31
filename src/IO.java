@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-
+/** input and output for the project*/
 public class IO {
 	
 	static Map<String, Integer> field;
@@ -16,6 +16,8 @@ public class IO {
 	static File outFile;
 	static FileWriter outFileWriter;
 	static PrintWriter outPrintWriter;
+	
+	/** Initializes the IO class, must be run before using other methods*/
 	public static void init() {
 		Scanner file = null;
 		try {
@@ -64,6 +66,10 @@ public class IO {
 		}
 		
 	}
+	/** gets a field from the merge file 
+	 * @param integer ID of the student and the name of the field
+	 * @author Mitchell Fream
+	 * @return the value of the field*/
 	public static String get(int ID, String in) throws IDoutOfRangeException {
 		for(ArrayList<String> student: studentData){
 			if (Integer.parseInt(student.get(field.get("ID")))==ID) {
@@ -73,6 +79,7 @@ public class IO {
 		}
 		throw new IDoutOfRangeException();
 	}
+	/** wrapper for a PrintStream println*/
 	public static void write(String in) {
 		System.out.println(in);
 		outPrintWriter.println(in);

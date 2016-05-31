@@ -8,7 +8,10 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
-
+/** pops up when an ID is entered, asks the user to confirm
+ * Handles creation of student objects and IO
+ *
+ */
 public class ConfirmationDialog extends JDialog implements PropertyChangeListener { //JDialog does everything
 	private JOptionPane optionPane;
 
@@ -108,7 +111,7 @@ public class ConfirmationDialog extends JDialog implements PropertyChangeListene
 
         }
    } 
-    
+    /** Closes */
     public void close(){
     	//Delete dialog box
     	this.setVisible(false);
