@@ -59,12 +59,15 @@ public class CustomDialog extends JDialog implements ActionListener, PropertyCha
     /**
      * Returns null if the typed string was invalid;
      * otherwise, returns the string as the user entered it.
+     * @return String typedText
      */
     public String getValidatedText() {
         return typedText;
     }
 
-    /** Creates the reusable dialog. */
+    /** Creates the reusable dialog. 
+     * @param GUI gui
+     * */
     public CustomDialog(GUI gui) {
         super(gui, true);
         myGUI=gui;

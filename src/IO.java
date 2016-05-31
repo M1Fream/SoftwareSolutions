@@ -67,9 +67,10 @@ public class IO {
 		
 	}
 	/** gets a field from the merge file 
-	 * @param integer ID of the student and the name of the field
+	 * @param int ID
 	 * @author Mitchell Fream
-	 * @return the value of the field*/
+	 * @return String in
+	 * @throws IDoutOfRangeException*/
 	public static String get(int ID, String in) throws IDoutOfRangeException {
 		for(ArrayList<String> student: studentData){
 			if (Integer.parseInt(student.get(field.get("ID")))==ID) {
@@ -79,7 +80,8 @@ public class IO {
 		}
 		throw new IDoutOfRangeException();
 	}
-	/** wrapper for a PrintStream println*/
+	/** wrapper for a PrintStream println
+	 * @param String in*/
 	public static void write(String in) {
 		System.out.println(in);
 		outPrintWriter.println(in);

@@ -17,8 +17,7 @@ public class GUI extends JFrame{
 		super(string);
 	}
 	/** Main method for the entire program, called from Main and runs everything
-	 * @return Nothing
-	 * @param None*/
+	 */
 	public void main(){
 			this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE); //Default is do nothing on close
 			this.setAlwaysOnTop(true); //Always top window
