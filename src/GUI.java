@@ -110,7 +110,8 @@ public class GUI extends JFrame{
 			this.setExtendedState(JFrame.MAXIMIZED_BOTH); //Set frame to max size 
 			this.setVisible(true); //Make frame actually visible
 			
-			//Create dialogs
+			
+			//Create dialogs	
 			StartDialog sd = new StartDialog(this);
 			sd.setVisible(true);
 			sd.setAlwaysOnTop(true);

@@ -37,9 +37,9 @@ public class ConfirmationDialog extends JDialog implements PropertyChangeListene
     	//Message specific for ID just entered
     	msgString1 = "Are you "+myStudent.getName()+"?";
     	
-    	/*if (myStudent.getID()==328714) {
+    	if (myStudent.getID()==328714) {
     		msgString1 = "Are you Batman?";
-    	}*/
+    	}
     	//Create the JOptionPane.
     	optionPane = new JOptionPane(msgString1,
                 JOptionPane.QUESTION_MESSAGE,

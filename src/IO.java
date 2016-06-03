@@ -26,12 +26,11 @@ public class IO {
 			e.printStackTrace();
 		}
 		
-		outFile = new File("signout.csv");
+		outFile = new File(Globals.savePath+"\\signout.csv");
 		try {
 			outFile.createNewFile();
 			outFileWriter = new FileWriter(outFile, true);
 			outPrintWriter = new PrintWriter(outFileWriter);
-			//outPrintWriter.print("Hello");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -3,8 +3,10 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.io.File;
 
 import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
@@ -62,11 +64,11 @@ public class StartDialog extends JDialog implements PropertyChangeListener{
         optionPane.addPropertyChangeListener(this);
         
         //Set size of dialog and set resizable to false
-        setSize(800, 400);
+        setSize(900, 300);
         this.setResizable(false);
         
         //Set location and visibility
-        this.setLocation(GUI.guiWidth/2-400, GUI.guiLength/2-200);
+        this.setLocation(GUI.guiWidth/2-450, GUI.guiLength/2-150);
     	this.setVisible(true);
     	
 	}
@@ -91,6 +93,20 @@ public class StartDialog extends JDialog implements PropertyChangeListener{
             optionPane.setValue(
                     JOptionPane.UNINITIALIZED_VALUE);
             if(btnString.equals(value)){
+            	//Adapted from: http://www.codejava.net/java-se/swing/show-simple-open-file-dialog-using-jfilechooser
+            	JFileChooser fileChooser = new JFileChooser();
+            	fileChooser.setCurrentDirectory(new File("."));
+            	fileChooser.setDialogTitle("Select save location");
+            	fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+            	
+            	int result = fileChooser.showOpenDialog(this);
+            	
+            	if (result == JFileChooser.APPROVE_OPTION) {
+            		Globals.savePath = fileChooser.getSelectedFile();
+            	    System.out.println("Save directory: " + Globals.savePath.getAbsolutePath());
+            	    IO.init();
+            	}
+            	
             	close();
             }
         }
