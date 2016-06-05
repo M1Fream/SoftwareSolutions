@@ -2,41 +2,35 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.io.File;
 
 import javax.swing.JDialog;
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 
-public class StartDialog extends JDialog implements PropertyChangeListener{
+public class IDErrorDialog extends JDialog implements PropertyChangeListener {
 	private JOptionPane optionPane;
 	
 	//Strings to be used in optionPane
 	private String btnString = " OK ";
 	private String msgString1;
 	
-	private GUI myGUI;
-	
-	public StartDialog(GUI gui){
-		myGUI = gui;
+	public IDErrorDialog(){
+		//Set title and put on top
+		this.setTitle("Invalid ID");
+		this.setAlwaysOnTop(true);
 		
 		//Set font
 		UIManager.put("OptionPane.messageFont", Globals.font);
         UIManager.put("OptionPane.buttonFont", Globals.font);
     	
-        //Set title and put on top
-		this.setTitle("Welcome");
-		this.setAlwaysOnTop(true);
-		
-		msgString1 = " Welcome to the Software Solutions Student Sign-Out Program! ";
+		msgString1 = "Error: 6-digit ID not entered";
 		
 		Object[] options = {btnString};
 		
 		//Create the JOptionPane.
     	optionPane = new JOptionPane(msgString1,
-                JOptionPane.PLAIN_MESSAGE,
+                JOptionPane.ERROR_MESSAGE,
                 JOptionPane.YES_NO_OPTION,
                 null,
                 options,
@@ -63,11 +57,11 @@ public class StartDialog extends JDialog implements PropertyChangeListener{
         optionPane.addPropertyChangeListener(this);
         
         //Set size of dialog and set resizable to false
-        setSize(900, 300);
+        setSize(700, 200);
         this.setResizable(false);
         
         //Set location and visibility
-        this.setLocation(GUI.guiWidth/2-450, GUI.guiLength/2-150);
+        this.setLocation(GUI.guiWidth/2-350, GUI.guiLength/2-100);
     	this.setVisible(true);
     	
 	}
@@ -92,32 +86,14 @@ public class StartDialog extends JDialog implements PropertyChangeListener{
             optionPane.setValue(
                     JOptionPane.UNINITIALIZED_VALUE);
             if(btnString.equals(value)){
-            	//Adapted from: http://www.codejava.net/java-se/swing/show-simple-open-file-dialog-using-jfilechooser
-            	JFileChooser fileChooser = new JFileChooser();
-            	fileChooser.setCurrentDirectory(new File("."));
-            	fileChooser.setDialogTitle("Select save location");
-            	fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-            	
-            	int result = fileChooser.showOpenDialog(this);
-            	
-            	if (result == JFileChooser.APPROVE_OPTION) {
-            		Globals.savePath = fileChooser.getSelectedFile();
-            	    //System.out.println("Save directory: " + Globals.savePath.getAbsolutePath());
-            	    try {
-						IO.init();
-						close();
-					} catch (SaveLocationException e2) {
-						SaveLocationErrorDialog se = new SaveLocationErrorDialog(myGUI);
-					}
-            	}
+            	close();
             }
         }
     }
-	
-	public void close(){//Close window and make password dialog visible
-        this.setVisible(false);
-        GUI.setPasswordDialogVisible(true);
-        myGUI.setResizable(false);
-        this.dispose();
+    
+    public void close(){
+    	//Delete dialog box
+    	this.setVisible(false);
+    	this.dispose();
     }
 }

@@ -3,18 +3,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.Border;
 
 
-public class PromPanel extends JPanel implements ActionListener{
+public class SignoutPanel extends JPanel implements ActionListener{
 
 	private JButton enterID;
 	private JTextField idEntry; //TextField for user input
 	
 	private GUI myGUI;
 	
-	public PromPanel(GUI gui){
+	public SignoutPanel(GUI gui){
 		myGUI = gui;
 		
 		//Set background color and opacity
@@ -30,13 +28,13 @@ public class PromPanel extends JPanel implements ActionListener{
 		idLabel.setFont(Globals.font); //Set font
 		this.add(idLabel);
 		
-		//Functionless filler
+		//Function-less filler
 		this.add(Box.createHorizontalStrut(3));
 		
 		//TextField to enter student id
-		idEntry = new JTextField(10); 
+		idEntry = new JTextField(10);
 		idEntry.setToolTipText("Enter ID's here");
-		idEntry.setFont(new Font("Times New Roman",Font.PLAIN,32));
+		idEntry.setFont(new Font("Times New Roman",Font.PLAIN,32));		
 		this.add(idEntry);
 
 		//More filler!
@@ -49,8 +47,7 @@ public class PromPanel extends JPanel implements ActionListener{
 		enterID.setFont(Globals.font);
 		this.add(enterID);
 		enterID.addActionListener(this);
-		
-		
+	
 	}
 	
 	public void actionPerformed(ActionEvent e) {
@@ -59,11 +56,12 @@ public class PromPanel extends JPanel implements ActionListener{
 			//Make confirmation dialog to ensure that it is the correct student.
 			ConfirmationDialog conDialog = new ConfirmationDialog(myGUI,Globals.studentList.get(Globals.studentList.size()-1));
 		} catch (IDoutOfRangeException e1) {
-			ErrorDialog ed = new ErrorDialog();
+			IDErrorDialog ed = new IDErrorDialog();
 		} catch (java.lang.NumberFormatException e1) {
-			ErrorDialog ed = new ErrorDialog();
+			IDErrorDialog ed = new IDErrorDialog();
 		}
 		idEntry.setText("");
+		idEntry.requestFocusInWindow();
 	}
 
 	public JButton getSubmitButton() {

@@ -17,8 +17,9 @@ public class IO {
 	static FileWriter outFileWriter;
 	static PrintWriter outPrintWriter;
 	
-	/** Initializes the IO class, must be run before using other methods*/
-	public static void init() {
+	/** Initializes the IO class, must be run before using other methods
+	 * @throws SaveLocationException */
+	public static void init() throws SaveLocationException {
 		Scanner file = null;
 		try {
 			file = new Scanner(new File("in.mer"));
@@ -26,7 +27,12 @@ public class IO {
 			e.printStackTrace();
 		}
 		
-		outFile = new File(Globals.savePath+"\\signout.csv");
+		if(Globals.savePath.toString().endsWith("\\")||Globals.savePath.toString().endsWith("Users")){ //If it is being saved to a restricted location
+			throw new SaveLocationException();
+		}else{
+			outFile = new File(Globals.savePath+"\\signout.csv");
+		}
+		
 		try {
 			outFile.createNewFile();
 			outFileWriter = new FileWriter(outFile, true);

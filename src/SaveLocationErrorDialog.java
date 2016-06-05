@@ -1,31 +1,33 @@
-import java.awt.Font;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 
-public class ErrorDialog extends JDialog implements PropertyChangeListener {
-	private JOptionPane optionPane;
+public class SaveLocationErrorDialog extends JDialog implements PropertyChangeListener{//NOTE: This for some reason doesn't display the message on my Surface
+private JOptionPane optionPane;
 	
 	//Strings to be used in optionPane
 	private String btnString = " OK ";
 	private String msgString1;
 	
-	public ErrorDialog(){
-		//Set title and put on top
-		this.setTitle("Invalid ID");
-		this.setAlwaysOnTop(true);
+	private GUI myGUI;
+	
+	public SaveLocationErrorDialog(GUI gui){
+		myGUI = gui;
 		
 		//Set font
 		UIManager.put("OptionPane.messageFont", Globals.font);
         UIManager.put("OptionPane.buttonFont", Globals.font);
     	
-		msgString1 = "Error: 6-digit ID not entered";
+        //Set title and put on top
+		this.setTitle("Save location error");
+		this.setAlwaysOnTop(true);
+	
+		msgString1 = " Error: Cannot save file directly to this location ";
 		
 		Object[] options = {btnString};
 		
@@ -36,10 +38,9 @@ public class ErrorDialog extends JDialog implements PropertyChangeListener {
                 null,
                 options,
                 options[0]);
-        
     	//Make this dialog display it.
         setContentPane(optionPane);
-    	
+        
     	//Handle window closing correctly.
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
@@ -58,11 +59,11 @@ public class ErrorDialog extends JDialog implements PropertyChangeListener {
         optionPane.addPropertyChangeListener(this);
         
         //Set size of dialog and set resizable to false
-        setSize(700, 200);
+        setSize(900, 300);
         this.setResizable(false);
         
         //Set location and visibility
-        this.setLocation(GUI.guiWidth/2-350, GUI.guiLength/2-100);
+        this.setLocation(GUI.guiWidth/2-450, GUI.guiLength/2-150);
     	this.setVisible(true);
     	
 	}
@@ -86,15 +87,14 @@ public class ErrorDialog extends JDialog implements PropertyChangeListener {
             //property change event will be fired.
             optionPane.setValue(
                     JOptionPane.UNINITIALIZED_VALUE);
-            if(btnString.equals(value)){
+            if(btnString.equals(value)){ 	
             	close();
             }
         }
     }
-    
-    public void close(){
-    	//Delete dialog box
-    	this.setVisible(false);
-    	this.dispose();
+	
+	public void close(){
+        this.setVisible(false);
+        this.dispose();
     }
 }

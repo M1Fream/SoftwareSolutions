@@ -7,7 +7,7 @@ public class GUI extends JFrame{
 	private static CustomDialog cd;
 	private static PasswordDialog pd;
 	private static BackgroundPanel bp;
-	private static PromPanel promPanel;
+	private static SignoutPanel promPanel;
 	
 	//Width and length of gui
 	public static int guiWidth = 1280;
@@ -77,7 +77,7 @@ public class GUI extends JFrame{
 			p.add(Box.createRigidArea(new Dimension(0,50)),BorderLayout.NORTH);
 			
 			//Add PromPanel
-			promPanel = new PromPanel(this);
+			promPanel = new SignoutPanel(this);
 			p2.add(promPanel,BorderLayout.NORTH);
 			
 			//Invisible box 2
@@ -141,7 +141,7 @@ public class GUI extends JFrame{
 		bp.rainbowBackground();
 	}
 	
-	public PromPanel getPromPanel(){
+	public SignoutPanel getPromPanel(){
 		return promPanel;
 	}
 	
