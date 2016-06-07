@@ -3,7 +3,8 @@ import java.util.Date;
 /** it's a student */
 public class Student {
 	private int myID;
-	private String myName;
+	private String myLastName;
+	private String myFirstName;
 	private int myGrade;
 	/** looks up student data in database through IO class
 	 * does basic sanity checking
@@ -15,8 +16,10 @@ public class Student {
 			throw new IDoutOfRangeException();
 		}
 		myID=ID;
-		myName=IO.get(ID, "FIRST") +" "+ IO.get(ID, "LAST"); //look up name in database
-		myGrade=Integer.parseInt(IO.get(ID, "GR")); //look up grade in database
+		//look up name in database
+		myLastName = IO.get(ID, "LAST");
+		myFirstName = IO.get(ID, "FIRST"); 
+		myGrade = Integer.parseInt(IO.get(ID, "GR")); //look up grade in database
 		if(myID==328714) {
 			System.out.println("Hello master");
 		}
@@ -31,26 +34,32 @@ public class Student {
 		System.out.println("SOMEONE HAS MADE A TERRIBLE MISTAKE");
 		System.out.println("INSTANTIATING A DEFAULT STUDENT");
 		myID=999999;
-		myName="THIS IS NOT A STUDENT";
+		myLastName="THIS IS NOT A STUDENT";
+		myFirstName="THIS IS STILL NOT A STUDENT";
 		myGrade=0;
 	}
-	public Student(int ID, String name, int grade, boolean paid) {
+	public Student(int ID, String lastName, String firstName, int grade, boolean paid) {
 		myID=ID;
-		myName=name;
+		myLastName=lastName;
+		myFirstName=firstName;
 		myGrade=grade;
 	}
 	public String toString() {
-		return myName+", "+myID+", "+myGrade;
+		return myLastName+", "+myFirstName+", "+myID+", "+myGrade;
 	}
-	public String getName(){
-		return myName;
+	public String getLastName(){
+		return myLastName;
+	}
+	
+	public String getFirstName(){
+		return myFirstName;
 	}
 	
 	public int getID(){
 		return myID;
 	}
 	public String getOut() {
-		return (new Date()).toString() + "," + myName + "," + myID + "," + myGrade;
+		return (new Date()).toString() + "," + myLastName + "," + myFirstName + "," + myID + "," + myGrade;
 	}
 	public boolean equals(Student other) {
 		return myID==other.myID;

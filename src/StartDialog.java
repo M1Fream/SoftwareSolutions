@@ -95,7 +95,7 @@ public class StartDialog extends JDialog implements PropertyChangeListener{
                     JOptionPane.UNINITIALIZED_VALUE);
             if(btnString.equals(value)){
         		if(firstMessage){//If showing first message
-        			optionPane.setMessage("Please press the button to select a save location for the data.");
+        			optionPane.setMessage("Please press the button and select a save location for the data.");
         			
         			firstMessage=false;
         		}else{//If showing second message
