@@ -13,6 +13,8 @@ import javax.swing.UIManager;
 public class StartDialog extends JDialog implements PropertyChangeListener{
 	private JOptionPane optionPane;
 	
+	private boolean firstMessage = true; //Whether or not program is showing first message
+	
 	//Strings to be used in optionPane
 	private String btnString = " OK ";
 	private String msgString1;
@@ -92,24 +94,30 @@ public class StartDialog extends JDialog implements PropertyChangeListener{
             optionPane.setValue(
                     JOptionPane.UNINITIALIZED_VALUE);
             if(btnString.equals(value)){
-            	//Adapted from: http://www.codejava.net/java-se/swing/show-simple-open-file-dialog-using-jfilechooser
-            	JFileChooser fileChooser = new JFileChooser();
-            	fileChooser.setCurrentDirectory(new File("."));
-            	fileChooser.setDialogTitle("Select save location");
-            	fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        		if(firstMessage){//If showing first message
+        			optionPane.setMessage("Please press the button to select a save location for the data.");
+        			
+        			firstMessage=false;
+        		}else{//If showing second message
+        			//Adapted from: http://www.codejava.net/java-se/swing/show-simple-open-file-dialog-using-jfilechooser
+        			JFileChooser fileChooser = new JFileChooser();
+        			fileChooser.setCurrentDirectory(new File("."));
+        			fileChooser.setDialogTitle("Select save location");
+        			fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
             	
-            	int result = fileChooser.showOpenDialog(this);
+        			int result = fileChooser.showOpenDialog(this);
             	
-            	if (result == JFileChooser.APPROVE_OPTION) {
-            		Globals.savePath = fileChooser.getSelectedFile();
-            	    //System.out.println("Save directory: " + Globals.savePath.getAbsolutePath());
-            	    try {
-						IO.init();
-						close();
-					} catch (SaveLocationException e2) {
-						SaveLocationErrorDialog se = new SaveLocationErrorDialog(myGUI);
-					}
-            	}
+        			if (result == JFileChooser.APPROVE_OPTION) {
+            			Globals.savePath = fileChooser.getSelectedFile();
+            			//System.out.println("Save directory: " + Globals.savePath.getAbsolutePath());
+            			try {
+            	    	IO.init();
+							close();
+            			} catch (SaveLocationException e2) {
+            				SaveLocationErrorDialog se = new SaveLocationErrorDialog(myGUI);
+            			}	
+        			}
+        		}
             }
         }
     }
