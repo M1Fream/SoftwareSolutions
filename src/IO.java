@@ -27,7 +27,7 @@ public class IO {
 			e.printStackTrace();
 		}
 		
-		if(Globals.savePath.toString().endsWith("\\")||Globals.savePath.toString().endsWith("Users")){ //If it is being saved to a restricted location
+		if(Globals.savePath.toString().endsWith("\\")||Globals.savePath.toString().endsWith("Users")||Globals.savePath.toString().endsWith("Default.migrated")){ //If it is being saved to a restricted location
 			throw new SaveLocationException();
 		}else{
 			outFile = new File(Globals.savePath+"\\signout.csv");

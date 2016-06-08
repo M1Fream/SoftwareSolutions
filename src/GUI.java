@@ -24,12 +24,12 @@ public class GUI extends JFrame{
 			this.setLayout(new BorderLayout()); //Set frame's layout
 			
 			//Set background color
-			this.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0));
+			this.setBackground(Globals.white);
 			
 			//Set up JPanel
 			JPanel p = new JPanel();
 			p.setOpaque(true);
-			p.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0));
+			p.setBackground(Globals.white);
 			p.setLayout(new BorderLayout());
 			
 			Dimension d = new Dimension(guiWidth,guiLength); //Make dimension
@@ -40,34 +40,41 @@ public class GUI extends JFrame{
 			//Set up another JPanel
 			JPanel p2 = new JPanel();
 			p2.setOpaque(true);
-			p2.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0));
+			p2.setBackground(Globals.white);
 			p2.setLayout(new BorderLayout());
 			
 			//How about another?
 			JPanel p3 = new JPanel();
 			p3.setOpaque(true);
-			p3.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0));
+			p3.setBackground(Globals.white);
 			p3.setLayout(new BorderLayout());
 			
 			//Tired yet?
 			JPanel p4 = new JPanel();
 			p4.setOpaque(true);
-			p4.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0));
+			p4.setBackground(Globals.white);
 			p4.setLayout(new BorderLayout());
 			
 			//And you thought we were done
 			JPanel p5 = new JPanel();
 			p5.setOpaque(true);
-			p5.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0));
+			p5.setBackground(Globals.white);
 			p5.setLayout(new BorderLayout());
 			
 			//As a wise man said, "Anotha one"
 			JPanel p6 = new JPanel();
 			p6.setOpaque(true);
-			p6.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0));
+			p6.setBackground(Globals.white);
 			p6.setLayout(new BorderLayout());
 			
-			Dimension d2 = new Dimension(guiWidth,guiLength-200); //Let's make another dimension
+			//I'm out of witty comments to make :(
+			JPanel p7 = new JPanel();
+			p7.setOpaque(true);
+			p7.setBackground(Globals.white);
+			p7.setLayout(new BorderLayout());
+			
+			//Let's make another dimension
+			Dimension d2 = new Dimension(guiWidth,guiLength-200); 
 			p.setPreferredSize(d2); //Set the size
 			p.setMaximumSize(d2); //Do it again
 			p.setMinimumSize(d2); //Third time is the charm
@@ -86,18 +93,23 @@ public class GUI extends JFrame{
 			//Add CrestPanel
 			p4.add(new CrestPanel(),BorderLayout.NORTH);
 			
+			p5.add(new PeriodPanel(),BorderLayout.NORTH);
+			
 			//Invisible box 3
-			p5.add(Box.createRigidArea(new Dimension(0,50)),BorderLayout.NORTH);
+			p6.add(Box.createRigidArea(new Dimension(0,50)),BorderLayout.NORTH);
+			//p5.add(Box.createRigidArea(new Dimension(0,50)),BorderLayout.NORTH);
 			
 			//Add BackgroundPanel with falcon.jpg, falcon2.jpg, or falcon3.jpg, based on constructor argument
 			bp = new BackgroundPanel("falcon");
-			p6.add(bp,BorderLayout.CENTER);
+			p7.add(bp,BorderLayout.CENTER);
+			//p6.add(bp,BorderLayout.CENTER);
 			
 			//Add ButtonPanel
-			p6.add(new ButtonPanel(),BorderLayout.NORTH);
-			
+			p7.add(new ButtonPanel(),BorderLayout.NORTH);
+			//p6.add(new ButtonPanel(),BorderLayout.NORTH);
 			
 			//Put it all together
+			p6.add(p7,BorderLayout.CENTER);
 			p5.add(p6,BorderLayout.CENTER); //Add one
 			p4.add(p5,BorderLayout.CENTER); //Add another
 			p3.add(p4,BorderLayout.CENTER); //Let's do it again

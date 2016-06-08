@@ -59,7 +59,7 @@ public class Student {
 		return myID;
 	}
 	public String getOut() {
-		return (new Date()).toString() + "," + myLastName + "," + myFirstName + "," + myID + "," + myGrade;
+		return (new Date()).toString() + "," + PeriodPanel.getPeriod() + ", " + myLastName + "," + myFirstName + "," + myID + "," + myGrade;
 	}
 	public boolean equals(Student other) {
 		return myID==other.myID;

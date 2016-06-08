@@ -16,7 +16,7 @@ public class CrestPanel extends JPanel{ // Just look at button panel, it has the
 	
 	public CrestPanel(){
 		//Set background color and opacity
-		this.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0)); 
+		this.setBackground(Globals.white); 
 		this.setOpaque(true);
 		
 		//Set image to crest.jpg 

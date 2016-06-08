@@ -13,7 +13,7 @@ public class ButtonPanel extends JPanel implements ActionListener{
 	
 	public ButtonPanel(){ 
 		//Set background color and opacity
-		this.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0)); 
+		this.setBackground(Globals.white); 
 		this.setOpaque(true);
 		
 		//JButton for exiting program

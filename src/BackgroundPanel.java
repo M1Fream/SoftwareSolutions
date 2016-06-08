@@ -17,7 +17,7 @@ class BackgroundPanel extends JPanel{
 	
 	public BackgroundPanel(String s){
 		//Set background color and opacity
-		this.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0)); 
+		this.setBackground(Globals.white); 
 		this.setOpaque(true);
 		
 		//Determine which Falcon jpg to use based on String from constructor
