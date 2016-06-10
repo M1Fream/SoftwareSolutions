@@ -18,29 +18,24 @@ public class IO {
 	static PrintWriter outPrintWriter;
 	
 	/** Initializes the IO class, must be run before using other methods
-	 * @throws SaveLocationException */
-	public static void init() throws SaveLocationException {
+	 * @throws IOException */
+	public static void init() throws IOException {
 		Scanner file = null;
 		try {
 			file = new Scanner(new File("in.mer"));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		
-		if(Globals.savePath.toString().endsWith("\\")||Globals.savePath.toString().endsWith("Users")||Globals.savePath.toString().endsWith("Default.migrated")){ //If it is being saved to a restricted location
-			throw new SaveLocationException();
-		}else{
+
 			outFile = new File(Globals.savePath+"\\signout.csv");
-		}
-		
+
 		try {
 			outFile.createNewFile();
 			outFileWriter = new FileWriter(outFile, true);
 			outPrintWriter = new PrintWriter(outFileWriter);
 		} catch (IOException e) {
-			e.printStackTrace();
+			throw e;
 		}
-		
 		
 		//create Map of Fields (line 1)
 		field = new HashMap<String,Integer>();

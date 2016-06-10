@@ -3,6 +3,7 @@ import java.awt.event.WindowEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
+import java.io.IOException;
 
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
@@ -113,7 +114,7 @@ public class StartDialog extends JDialog implements PropertyChangeListener{
             			try {
             	    	IO.init();
 							close();
-            			} catch (SaveLocationException e2) {
+            			} catch (IOException e2) {
             				SaveLocationErrorDialog se = new SaveLocationErrorDialog(myGUI);
             			}	
         			}

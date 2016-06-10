@@ -1,6 +1,4 @@
 import java.awt.Choice;
-import java.awt.Color;
-
 import javax.swing.Box;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -11,7 +9,7 @@ public class PeriodPanel extends JPanel{
 	
 	public PeriodPanel(){
 		//Set background color and opacity
-		this.setBackground(new Color((float) 1.0, (float) 1.0, (float) 1.0)); 
+		this.setBackground(Globals.white); 
 		this.setOpaque(true);
 			
 		//Set size

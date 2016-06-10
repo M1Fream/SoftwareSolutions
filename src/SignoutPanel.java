@@ -8,7 +8,7 @@ public class SignoutPanel extends JPanel implements ActionListener{
 
 	private JButton enterID;
 	private JTextField idEntry; //TextField for user input	
-	private static Choice periodOptions;
+	//private static Choice periodOptions;
 
 	private GUI myGUI;
 	
