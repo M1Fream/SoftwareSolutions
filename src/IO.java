@@ -27,7 +27,7 @@ public class IO {
 			e.printStackTrace();
 		}
 
-			outFile = new File(Globals.savePath+"\\signout.csv");
+			outFile = new File(Globals.savePath+"//signout.csv");
 
 		try {
 			outFile.createNewFile();
