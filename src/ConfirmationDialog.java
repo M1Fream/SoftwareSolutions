@@ -1,9 +1,18 @@
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.image.BufferedImage;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
@@ -30,6 +39,24 @@ public class ConfirmationDialog extends JDialog implements PropertyChangeListene
     	//Set title
     	this.setTitle("Confirm student");
     	
+    	ImageIcon icon;
+    	try {
+    	      BufferedImage myPicture = ImageIO.read(new File("files/input/pictures/" + s.getID() + ".jpg"));
+    	      icon = new ImageIcon(getScaledImage(myPicture, 108, 139));
+    	} catch (IOException e) {
+    		try{
+    			BufferedImage myPicture = ImageIO.read(new File("files/input/pictures/" + s.getID() + ".gif"));
+      	      	icon = new ImageIcon(getScaledImage(myPicture, 108, 139));
+    		}catch(IOException e2){
+    			try {
+    	            BufferedImage noPicture = ImageIO.read(new File("lib/noPicture.png"));
+    	            icon = new ImageIcon(noPicture);
+    	      	} catch (IOException e3) {
+    	    	  icon = null ;
+    	      	}
+    		}
+    	}
+    	
     	//Create an array specifying the number of dialog buttons and their text.
     	Object[] options = {btnString1,btnString2};
     	
@@ -38,12 +65,16 @@ public class ConfirmationDialog extends JDialog implements PropertyChangeListene
     	
     	if (myStudent.getID()==328714) {
     		msgString1 = "Are you Batman?";
+    	}else if(myStudent.getID()==372290){
+    		msgString1 = "Are you the bomb diggity?"; 
+    	}else if(myStudent.getID()==324971){
+    		msgString1 = "Are you alive?";
     	}
     	//Create the JOptionPane.
     	optionPane = new JOptionPane(msgString1,
                 JOptionPane.QUESTION_MESSAGE,
                 JOptionPane.YES_NO_OPTION,
-                null,
+                icon,
                 options,
                 options[0]);
     	
@@ -72,9 +103,9 @@ public class ConfirmationDialog extends JDialog implements PropertyChangeListene
         optionPane.addPropertyChangeListener(this);
         
         //Set size of dialog and set resizable to false
-        setSize(650, 200);
+        setSize(650, 350);
         this.setResizable(false);
-        this.setLocation(GUI.guiWidth/2-325, GUI.guiLength/2-100);
+        this.setLocation(GUI.guiWidth/2-325, GUI.guiLength/2-175);
     	this.setVisible(true);
         
     }
@@ -110,6 +141,19 @@ public class ConfirmationDialog extends JDialog implements PropertyChangeListene
 
         }
    } 
+    
+    private Image getScaledImage(Image srcImg, int w, int h) {
+        BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = resizedImg.createGraphics();
+
+        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g2.drawImage(srcImg, 0, 0, w, h, null);
+        g2.dispose();
+
+        return resizedImg;
+   }
+
+    
     /** Closes */
     public void close(){
     	//Delete dialog box
