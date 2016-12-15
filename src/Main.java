@@ -5,5 +5,5 @@ public class Main {
 		GUI gui = new GUI("Prom sign out"); // GUI has most of the code
 		gui.main();
 	}
-
+	
 }

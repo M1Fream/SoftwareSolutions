@@ -63,7 +63,7 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
         setContentPane(optionPane);
 
         //Handle window closing correctly.
-        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        //setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent we) {
                 /*
@@ -124,7 +124,7 @@ public class PasswordDialog extends JDialog implements ActionListener,PropertyCh
                     	typedText = textField.getText();
                     	if (passwordAttempt.equals(typedText)) {
 	                    	//we're done; clear and dismiss the dialog
-                    		myGUI.getCustomDialog().setPassword(passwordAttempt);
+                    		myGUI.getClosingDialog().setPassword(passwordAttempt);
 	                    	this.close();
                     	} else {
 	                    	//text was invalid

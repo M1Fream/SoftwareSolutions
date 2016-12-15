@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 public class ButtonPanel extends JPanel implements ActionListener{
 	private JButton exitWithPass;
 	
-	public ButtonPanel(){ 
+	public ButtonPanel(){
 		//Set background color and opacity
 		this.setBackground(Globals.white); 
 		this.setOpaque(true);

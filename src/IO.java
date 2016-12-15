@@ -37,13 +37,12 @@ public class IO {
 			throw e;
 		}
 		
-		//create Map of Fields (line 1)
+		//Create Map of Fields (line 1)
 		field = new HashMap<String,Integer>();
 		int i = 0;
 		for(String fieldName: file.nextLine().split(",")){
 			field.put(fieldName.trim(), i++);
 		}
-		//System.out.println(field);
 		
 		//Load in student data
 		studentData = new ArrayList<ArrayList<String>>();
@@ -54,7 +53,7 @@ public class IO {
 			}
 			studentData.add(aStudent);
 		}
-		//eliminate duplicates
+		//Eliminate duplicates
 		for(i = 0; i < studentData.size();  i++){
 			String id = studentData.get(i).get(field.get("ID"));
 			for(int j = studentData.size() - 1; j > i; j--){
@@ -66,6 +65,7 @@ public class IO {
 		}
 		
 	}
+	
 	/** gets a field from the merge file 
 	 * @param int ID
 	 * @author Mitchell Fream
@@ -80,6 +80,7 @@ public class IO {
 		}
 		throw new IDoutOfRangeException();
 	}
+	
 	/** wrapper for a PrintStream println
 	 * @param String in*/
 	public static void write(String in) {
@@ -91,4 +92,19 @@ public class IO {
 		write(in.getOut());
 	}
 
+	public static void write(ArrayList<Student> in) throws IOException{
+		File sortedOutFile = new File(Globals.savePath+"//sortedSignout.csv");
+		
+		try {
+			sortedOutFile.createNewFile();
+			outFileWriter = new FileWriter(sortedOutFile, true);
+			outPrintWriter = new PrintWriter(outFileWriter);
+		} catch (IOException e) {
+			throw e;
+		}
+		
+		for(Student s:in){
+			write(s);
+		}
+	}
 }

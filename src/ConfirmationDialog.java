@@ -12,7 +12,6 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
@@ -41,18 +40,18 @@ public class ConfirmationDialog extends JDialog implements PropertyChangeListene
     	
     	ImageIcon icon;
     	try {
-    	      BufferedImage myPicture = ImageIO.read(new File("files/input/pictures/" + s.getID() + ".jpg"));
-    	      icon = new ImageIcon(getScaledImage(myPicture, 108, 139));
+    		BufferedImage myPicture = ImageIO.read(new File("files/input/pictures/" + s.getID() + ".jpg"));
+    		icon = new ImageIcon(getScaledImage(myPicture, 108, 139));
     	} catch (IOException e) {
     		try{
     			BufferedImage myPicture = ImageIO.read(new File("files/input/pictures/" + s.getID() + ".gif"));
-      	      	icon = new ImageIcon(getScaledImage(myPicture, 108, 139));
+      	    	icon = new ImageIcon(getScaledImage(myPicture, 108, 139));
     		}catch(IOException e2){
     			try {
-    	            BufferedImage noPicture = ImageIO.read(new File("lib/noPicture.png"));
-    	            icon = new ImageIcon(noPicture);
+    				BufferedImage noPicture = ImageIO.read(new File("lib/noPicture.png"));
+    				icon = new ImageIcon(noPicture);
     	      	} catch (IOException e3) {
-    	    	  icon = null ;
+    	      		icon = null ;
     	      	}
     		}
     	}
@@ -130,7 +129,7 @@ public class ConfirmationDialog extends JDialog implements PropertyChangeListene
             	Globals.studentList.remove(Globals.studentList.size()-1); //Remove the student who was not confirmed
             }else if (btnString1.equals(value)){
             	if (Globals.studentList.size()>1 && Globals.studentList.get(Globals.studentList.size()-1).equals(Globals.studentList.get(Globals.studentList.size()-2))) {//Remove two-in-a-row duplicates //I'm sorry
-            		System.out.println("Don't do that"); //This probably won't happen anyway
+            		System.out.println("Don't do that"); //This *probably* won't happen anyway
             		Globals.studentList.remove(Globals.studentList.size()-1);
             	} else {
             		IO.write(Globals.studentList.get(Globals.studentList.size()-1));

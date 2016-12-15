@@ -110,7 +110,6 @@ public class StartDialog extends JDialog implements PropertyChangeListener{
             	
         			if (result == JFileChooser.APPROVE_OPTION) {
             			Globals.savePath = fileChooser.getSelectedFile();
-            			//System.out.println("Save directory: " + Globals.savePath.getAbsolutePath());
             			try {
             	    	IO.init();
 							close();
@@ -125,7 +124,8 @@ public class StartDialog extends JDialog implements PropertyChangeListener{
 	
 	public void close(){//Close window and make password dialog visible
         this.setVisible(false);
-        GUI.setPasswordDialogVisible(true);
+        PasswordDialog pd = new PasswordDialog(myGUI);
+        pd.setVisible(true);
         myGUI.setResizable(false);
         this.dispose();
     }

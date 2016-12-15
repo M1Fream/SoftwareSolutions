@@ -33,7 +33,7 @@ private JOptionPane optionPane;
 		
 		//Create the JOptionPane.
     	optionPane = new JOptionPane(msgString1,
-                JOptionPane.ERROR_MESSAGE,
+                JOptionPane.PLAIN_MESSAGE,
                 JOptionPane.YES_NO_OPTION,
                 null,
                 options,

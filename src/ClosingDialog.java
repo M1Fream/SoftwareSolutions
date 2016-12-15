@@ -37,7 +37,7 @@ import java.awt.Font;
 import java.awt.event.*;
 
 /* 1.4 example used by DialogDemo.java. */
-public class CustomDialog extends JDialog implements ActionListener, PropertyChangeListener {
+public class ClosingDialog extends JDialog implements ActionListener, PropertyChangeListener {
 	
     private String typedText = null; //Contains text typed by user
     private JTextField textField; //TextField for user to type text into
@@ -68,7 +68,7 @@ public class CustomDialog extends JDialog implements ActionListener, PropertyCha
     /** Creates the reusable dialog. 
      * @param GUI gui
      * */
-    public CustomDialog(GUI gui) {
+    public ClosingDialog(GUI gui) {
         super(gui, true);
         myGUI=gui;
         
@@ -167,14 +167,15 @@ public class CustomDialog extends JDialog implements ActionListener, PropertyCha
             if (btnString1.equals(value)) {
                     typedText = textField.getText();
                 if (password.equals(typedText)) {
-                    //we're done; clear and dismiss the dialog
-                    clearAndHide();
-                    myGUI.close();
+                    //we're done; clear and dismiss the dialog, ask user if they would like to sort the data
+                	clearAndHide();
+                	SortingDialog sd = new SortingDialog(myGUI);
+                	this.close();
                 } else {
                     //text was invalid
                     textField.selectAll();
                     JOptionPane.showMessageDialog(
-                                    CustomDialog.this,
+                                    ClosingDialog.this,
                                     "Sorry, that isn't the password.",
                                     "Wrong password",
                                     JOptionPane.ERROR_MESSAGE);
@@ -193,6 +194,11 @@ public class CustomDialog extends JDialog implements ActionListener, PropertyCha
     public void clearAndHide() {
         textField.setText(null);
         this.setVisible(false);
+    }
+    
+    public void close(){
+    	this.setVisible(false);
+    	this.dispose();
     }
 
 }
