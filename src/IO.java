@@ -49,7 +49,7 @@ public class IO {
 		while(file.hasNext()){
 			ArrayList<String> aStudent = new ArrayList<String>();
 			for(String studentField: file.nextLine().split("\",\"")){
-				aStudent.add(studentField.trim());
+				aStudent.add(studentField.replaceAll("\"", "").trim());
 			}
 			studentData.add(aStudent);
 		}
